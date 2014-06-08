@@ -1,0 +1,489 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		055BF56F1944425600D516A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF56E1944425600D516A7 /* Foundation.framework */; };
+		055BF5711944425600D516A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF5701944425600D516A7 /* CoreGraphics.framework */; };
+		055BF5731944425600D516A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF5721944425600D516A7 /* UIKit.framework */; };
+		055BF5791944425600D516A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 055BF5771944425600D516A7 /* InfoPlist.strings */; };
+		055BF57B1944425600D516A7 /* PZMain.m in Sources */ = {isa = PBXBuildFile; fileRef = 055BF57A1944425600D516A7 /* PZMain.m */; };
+		055BF57F1944425600D516A7 /* PZAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 055BF57E1944425600D516A7 /* PZAppDelegate.m */; };
+		055BF5821944425600D516A7 /* Main_iPhone.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055BF5801944425600D516A7 /* Main_iPhone.storyboard */; };
+		055BF5851944425600D516A7 /* Main_iPad.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 055BF5831944425600D516A7 /* Main_iPad.storyboard */; };
+		055BF5881944425600D516A7 /* PZViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 055BF5871944425600D516A7 /* PZViewController.m */; };
+		055BF58A1944425600D516A7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 055BF5891944425600D516A7 /* Images.xcassets */; };
+		055BF5911944425600D516A7 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF5901944425600D516A7 /* XCTest.framework */; };
+		055BF5921944425600D516A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF56E1944425600D516A7 /* Foundation.framework */; };
+		055BF5931944425600D516A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF5721944425600D516A7 /* UIKit.framework */; };
+		055BF59B1944425600D516A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 055BF5991944425600D516A7 /* InfoPlist.strings */; };
+		055BF59D1944425700D516A7 /* PzCalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 055BF59C1944425700D516A7 /* PzCalcTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		055BF5941944425600D516A7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 055BF5631944425600D516A7 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 055BF56A1944425600D516A7;
+			remoteInfo = PzCalc;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		055BF56B1944425600D516A7 /* PzCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PzCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		055BF56E1944425600D516A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		055BF5701944425600D516A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		055BF5721944425600D516A7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		055BF5761944425600D516A7 /* PzCalc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PzCalc-Info.plist"; sourceTree = "<group>"; };
+		055BF5781944425600D516A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		055BF57A1944425600D516A7 /* PZMain.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PZMain.m; path = ../Source/PZMain.m; sourceTree = "<group>"; };
+		055BF57C1944425600D516A7 /* PzCalc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "PzCalc-Prefix.pch"; sourceTree = "<group>"; };
+		055BF57D1944425600D516A7 /* PZAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PZAppDelegate.h; path = ../Source/PZAppDelegate.h; sourceTree = "<group>"; };
+		055BF57E1944425600D516A7 /* PZAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PZAppDelegate.m; path = ../Source/PZAppDelegate.m; sourceTree = "<group>"; };
+		055BF5811944425600D516A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPhone.storyboard; sourceTree = "<group>"; };
+		055BF5841944425600D516A7 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main_iPad.storyboard; sourceTree = "<group>"; };
+		055BF5861944425600D516A7 /* PZViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = PZViewController.h; path = ../Source/PZViewController.h; sourceTree = "<group>"; };
+		055BF5871944425600D516A7 /* PZViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = PZViewController.m; path = ../Source/PZViewController.m; sourceTree = "<group>"; };
+		055BF5891944425600D516A7 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		055BF58F1944425600D516A7 /* PzCalcTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PzCalcTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		055BF5901944425600D516A7 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		055BF5981944425600D516A7 /* PzCalcTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PzCalcTests-Info.plist"; sourceTree = "<group>"; };
+		055BF59A1944425600D516A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		055BF59C1944425700D516A7 /* PzCalcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PzCalcTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		055BF5681944425600D516A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				055BF5711944425600D516A7 /* CoreGraphics.framework in Frameworks */,
+				055BF5731944425600D516A7 /* UIKit.framework in Frameworks */,
+				055BF56F1944425600D516A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		055BF58C1944425600D516A7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				055BF5911944425600D516A7 /* XCTest.framework in Frameworks */,
+				055BF5931944425600D516A7 /* UIKit.framework in Frameworks */,
+				055BF5921944425600D516A7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		055BF5621944425600D516A7 = {
+			isa = PBXGroup;
+			children = (
+				055BF5741944425600D516A7 /* PzCalc */,
+				055BF5961944425600D516A7 /* Tests */,
+				055BF56D1944425600D516A7 /* Frameworks */,
+				055BF56C1944425600D516A7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		055BF56C1944425600D516A7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				055BF56B1944425600D516A7 /* PzCalc.app */,
+				055BF58F1944425600D516A7 /* PzCalcTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		055BF56D1944425600D516A7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				055BF56E1944425600D516A7 /* Foundation.framework */,
+				055BF5701944425600D516A7 /* CoreGraphics.framework */,
+				055BF5721944425600D516A7 /* UIKit.framework */,
+				055BF5901944425600D516A7 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		055BF5741944425600D516A7 /* PzCalc */ = {
+			isa = PBXGroup;
+			children = (
+				055BF57A1944425600D516A7 /* PZMain.m */,
+				055BF57D1944425600D516A7 /* PZAppDelegate.h */,
+				055BF57E1944425600D516A7 /* PZAppDelegate.m */,
+				055BF5861944425600D516A7 /* PZViewController.h */,
+				055BF5871944425600D516A7 /* PZViewController.m */,
+				055BF5801944425600D516A7 /* Main_iPhone.storyboard */,
+				055BF5831944425600D516A7 /* Main_iPad.storyboard */,
+				055BF5891944425600D516A7 /* Images.xcassets */,
+				055BF5751944425600D516A7 /* Supporting Files */,
+			);
+			path = PzCalc;
+			sourceTree = "<group>";
+		};
+		055BF5751944425600D516A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				055BF5761944425600D516A7 /* PzCalc-Info.plist */,
+				055BF5771944425600D516A7 /* InfoPlist.strings */,
+				055BF57C1944425600D516A7 /* PzCalc-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		055BF5961944425600D516A7 /* Tests */ = {
+			isa = PBXGroup;
+			children = (
+				055BF59C1944425700D516A7 /* PzCalcTests.m */,
+				055BF5971944425600D516A7 /* Supporting Files */,
+			);
+			name = Tests;
+			path = PzCalcTests;
+			sourceTree = "<group>";
+		};
+		055BF5971944425600D516A7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				055BF5981944425600D516A7 /* PzCalcTests-Info.plist */,
+				055BF5991944425600D516A7 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		055BF56A1944425600D516A7 /* PzCalc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 055BF5A01944425700D516A7 /* Build configuration list for PBXNativeTarget "PzCalc" */;
+			buildPhases = (
+				055BF5671944425600D516A7 /* Sources */,
+				055BF5681944425600D516A7 /* Frameworks */,
+				055BF5691944425600D516A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = PzCalc;
+			productName = PzCalc;
+			productReference = 055BF56B1944425600D516A7 /* PzCalc.app */;
+			productType = "com.apple.product-type.application";
+		};
+		055BF58E1944425600D516A7 /* PzCalcTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 055BF5A31944425700D516A7 /* Build configuration list for PBXNativeTarget "PzCalcTests" */;
+			buildPhases = (
+				055BF58B1944425600D516A7 /* Sources */,
+				055BF58C1944425600D516A7 /* Frameworks */,
+				055BF58D1944425600D516A7 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				055BF5951944425600D516A7 /* PBXTargetDependency */,
+			);
+			name = PzCalcTests;
+			productName = PzCalcTests;
+			productReference = 055BF58F1944425600D516A7 /* PzCalcTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		055BF5631944425600D516A7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = PZ;
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = "Steel Wheels Project";
+				TargetAttributes = {
+					055BF58E1944425600D516A7 = {
+						TestTargetID = 055BF56A1944425600D516A7;
+					};
+				};
+			};
+			buildConfigurationList = 055BF5661944425600D516A7 /* Build configuration list for PBXProject "PzCalc" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 055BF5621944425600D516A7;
+			productRefGroup = 055BF56C1944425600D516A7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				055BF56A1944425600D516A7 /* PzCalc */,
+				055BF58E1944425600D516A7 /* PzCalcTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		055BF5691944425600D516A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				055BF5851944425600D516A7 /* Main_iPad.storyboard in Resources */,
+				055BF58A1944425600D516A7 /* Images.xcassets in Resources */,
+				055BF5821944425600D516A7 /* Main_iPhone.storyboard in Resources */,
+				055BF5791944425600D516A7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		055BF58D1944425600D516A7 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				055BF59B1944425600D516A7 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		055BF5671944425600D516A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				055BF5881944425600D516A7 /* PZViewController.m in Sources */,
+				055BF57F1944425600D516A7 /* PZAppDelegate.m in Sources */,
+				055BF57B1944425600D516A7 /* PZMain.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		055BF58B1944425600D516A7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				055BF59D1944425700D516A7 /* PzCalcTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		055BF5951944425600D516A7 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 055BF56A1944425600D516A7 /* PzCalc */;
+			targetProxy = 055BF5941944425600D516A7 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		055BF5771944425600D516A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				055BF5781944425600D516A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		055BF5801944425600D516A7 /* Main_iPhone.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				055BF5811944425600D516A7 /* Base */,
+			);
+			name = Main_iPhone.storyboard;
+			sourceTree = "<group>";
+		};
+		055BF5831944425600D516A7 /* Main_iPad.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				055BF5841944425600D516A7 /* Base */,
+			);
+			name = Main_iPad.storyboard;
+			sourceTree = "<group>";
+		};
+		055BF5991944425600D516A7 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				055BF59A1944425600D516A7 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		055BF59E1944425700D516A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		055BF59F1944425700D516A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		055BF5A11944425700D516A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PzCalc/PzCalc-Prefix.pch";
+				INFOPLIST_FILE = "PzCalc/PzCalc-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		055BF5A21944425700D516A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PzCalc/PzCalc-Prefix.pch";
+				INFOPLIST_FILE = "PzCalc/PzCalc-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		055BF5A41944425700D516A7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PzCalc.app/PzCalc";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PzCalc/PzCalc-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "PzCalcTests/PzCalcTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		055BF5A51944425700D516A7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/PzCalc.app/PzCalc";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "PzCalc/PzCalc-Prefix.pch";
+				INFOPLIST_FILE = "PzCalcTests/PzCalcTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		055BF5661944425600D516A7 /* Build configuration list for PBXProject "PzCalc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				055BF59E1944425700D516A7 /* Debug */,
+				055BF59F1944425700D516A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		055BF5A01944425700D516A7 /* Build configuration list for PBXNativeTarget "PzCalc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				055BF5A11944425700D516A7 /* Debug */,
+				055BF5A21944425700D516A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		055BF5A31944425700D516A7 /* Build configuration list for PBXNativeTarget "PzCalcTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				055BF5A41944425700D516A7 /* Debug */,
+				055BF5A51944425700D516A7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 055BF5631944425600D516A7 /* Project object */;
+}

@@ -1,10 +1,9 @@
-//
-//  PZAppDelegate.m
-//  PzCalc
-//
-//  Created by Tomoo Hamada on 2014/06/04.
-//  Copyright (c) 2014年 Steel Wheels Project. All rights reserved.
-//
+/**
+ * @file	PZAppDelegate.m
+ * @brief	Define delegate for PzCalc application
+ * @par Copyright
+ *   Copyright (C) 2011 Steel Wheels Project
+ */
 
 #import "PZAppDelegate.h"
 

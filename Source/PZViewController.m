@@ -1,18 +1,25 @@
-//
-//  PZViewController.m
-//  PzCalc
-//
-//  Created by Tomoo Hamada on 2014/06/04.
-//  Copyright (c) 2014年 Steel Wheels Project. All rights reserved.
-//
+/**
+ * @file	PZViewController.m
+ * @brief	PZViewController class
+ * @par Copyright
+ *   Copyright (C) 2011 Steel Wheels Project
+ */
+
 
 #import "PZViewController.h"
 
 @interface PZViewController ()
 
+@property (weak, nonatomic) IBOutlet UICollectionView *tenKeyView;
+
 @end
 
 @implementation PZViewController
+
+- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle
+{
+	return [super initWithNibName: nibName bundle: nibBundle] ;
+}
 
 - (void)viewDidLoad
 {
