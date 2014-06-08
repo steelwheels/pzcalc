@@ -6,10 +6,11 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "PZTenKeyDelegate.h"
 
 @interface PZViewController : UIViewController
 {
-	
+	PZTenKeyDelegate *	tenKeyDelegate ;
 }
 
 @end

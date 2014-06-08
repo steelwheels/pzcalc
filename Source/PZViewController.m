@@ -16,18 +16,24 @@
 
 @implementation PZViewController
 
-- (id)initWithNibName:(NSString *)nibName bundle:(NSBundle *)nibBundle
+@synthesize  tenKeyView ;
+
+- (void) dealloc
 {
-	return [super initWithNibName: nibName bundle: nibBundle] ;
+	tenKeyDelegate = nil ;
 }
 
-- (void)viewDidLoad
+- (void) viewDidLoad
 {
-    [super viewDidLoad];
+	tenKeyDelegate = [[PZTenKeyDelegate alloc] init] ;
+	tenKeyView.delegate = tenKeyDelegate ;
+	tenKeyView.dataSource = tenKeyDelegate ;
+	[super viewDidLoad];
+	
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
-- (void)didReceiveMemoryWarning
+- (void) didReceiveMemoryWarning
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

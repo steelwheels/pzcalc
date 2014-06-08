@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		054EEBEA19444B6500856D95 /* PZTenKeyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 054EEBE919444B6500856D95 /* PZTenKeyDelegate.m */; };
 		055BF56F1944425600D516A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF56E1944425600D516A7 /* Foundation.framework */; };
 		055BF5711944425600D516A7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF5701944425600D516A7 /* CoreGraphics.framework */; };
 		055BF5731944425600D516A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF5721944425600D516A7 /* UIKit.framework */; };
@@ -35,6 +36,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		054EEBE819444B6500856D95 /* PZTenKeyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZTenKeyDelegate.h; path = Source/PZTenKeyDelegate.h; sourceTree = SOURCE_ROOT; };
+		054EEBE919444B6500856D95 /* PZTenKeyDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PZTenKeyDelegate.m; path = Source/PZTenKeyDelegate.m; sourceTree = SOURCE_ROOT; };
 		055BF56B1944425600D516A7 /* PzCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PzCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		055BF56E1944425600D516A7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		055BF5701944425600D516A7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -119,6 +122,8 @@
 				055BF57E1944425600D516A7 /* PZAppDelegate.m */,
 				055BF5861944425600D516A7 /* PZViewController.h */,
 				055BF5871944425600D516A7 /* PZViewController.m */,
+				054EEBE819444B6500856D95 /* PZTenKeyDelegate.h */,
+				054EEBE919444B6500856D95 /* PZTenKeyDelegate.m */,
 				055BF5801944425600D516A7 /* Main_iPhone.storyboard */,
 				055BF5831944425600D516A7 /* Main_iPad.storyboard */,
 				055BF5891944425600D516A7 /* Images.xcassets */,
@@ -257,6 +262,7 @@
 			files = (
 				055BF5881944425600D516A7 /* PZViewController.m in Sources */,
 				055BF57F1944425600D516A7 /* PZAppDelegate.m in Sources */,
+				054EEBEA19444B6500856D95 /* PZTenKeyDelegate.m in Sources */,
 				055BF57B1944425600D516A7 /* PZMain.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
