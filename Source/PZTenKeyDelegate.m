@@ -6,8 +6,13 @@
  */
 
 #import "PZTenKeyDelegate.h"
+#import "PZButton.h"
 
 #define NUMBER_OF_ITEMS		20
+
+@interface PZTenKeyDelegate ()
+- (IBAction) clickEvent:(id)sender event:(id)event ;
+@end
 
 @implementation PZTenKeyDelegate
 
@@ -25,12 +30,19 @@
 
 - (UICollectionViewCell *) collectionView: (UICollectionView *)collectionView cellForItemAtIndexPath: (NSIndexPath *)indexPath
 {
-	((void) collectionView) ;
-	((void) indexPath) ;
-
 	UICollectionViewCell *cell;
 	cell = [collectionView dequeueReusableCellWithReuseIdentifier: @"key" forIndexPath:indexPath];
+	
+	PZButton * button = (PZButton *) [cell viewWithTag: 1] ; /* The tag id is attached to the button */
+	button.buttonId = [indexPath row] ;
+	[button addTarget: self action: @selector(clickEvent:event:) forControlEvents: UIControlEventTouchUpInside] ;
 	return cell;
+}
+
+- (IBAction) clickEvent:(id) sender event:(id) event
+{
+	PZButton * button = sender ;
+	NSLog(@"clicked %u", (unsigned int) button.buttonId) ;
 }
 
 @end

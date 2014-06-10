@@ -8,6 +8,11 @@
 #import <UIKit/UIKit.h>
 
 @interface PZButton : UIButton
+{
+	
+}
+
+@property (nonatomic) NSInteger buttonId ;
 
 - (id) initWithCoder:(NSCoder *)aDecoder ;
 
