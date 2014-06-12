@@ -61,6 +61,7 @@
 		055BF5981944425600D516A7 /* PzCalcTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PzCalcTests-Info.plist"; sourceTree = "<group>"; };
 		055BF59A1944425600D516A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		055BF59C1944425700D516A7 /* PzCalcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PzCalcTests.m; sourceTree = "<group>"; };
+		05BD22851948A85800EE1A99 /* PZKeyCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZKeyCode.h; path = Source/PZKeyCode.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +126,7 @@
 				055BF57E1944425600D516A7 /* PZAppDelegate.m */,
 				055BF5861944425600D516A7 /* PZViewController.h */,
 				055BF5871944425600D516A7 /* PZViewController.m */,
+				05BD22851948A85800EE1A99 /* PZKeyCode.h */,
 				054EEBE819444B6500856D95 /* PZTenKeyDelegate.h */,
 				054EEBE919444B6500856D95 /* PZTenKeyDelegate.m */,
 				054E99A71945EE2900BC11C2 /* PZButton.h */,

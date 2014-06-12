@@ -7,9 +7,16 @@
 
 #import <UIKit/UIKit.h>
 
+typedef enum {
+	PZDecTenKeyState,
+	PZHexTenKeyState,
+	PZFloatTenKeyState
+} PZTenKeyState ;
+
 @interface PZTenKeyDelegate : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
-{
-	
-}
+
+@property (nonatomic) PZTenKeyState			tenKeyState ;
+
+- (id) init ;
 
 @end
