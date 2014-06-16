@@ -8,14 +8,16 @@
 #import <UIKit/UIKit.h>
 
 typedef enum {
-	PZDecTenKeyState,
-	PZHexTenKeyState,
-	PZFloatTenKeyState
+	PZDecTenKeyState		= 0,
+	PZHexTenKeyState		= 1,
+	PZFloatTenKeyState		= 2,
+	PZFuncTenKeyState		= 3
 } PZTenKeyState ;
 
 @interface PZTenKeyDelegate : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
 
 @property (nonatomic) PZTenKeyState			tenKeyState ;
+@property (nonatomic) NSMutableArray *			buttonArray ;
 
 - (id) init ;
 

@@ -10,5 +10,6 @@ typedef enum {
 	PZDecKeyCode,		/**<< Code of "Dec" key		*/
 	PZHexKeyCode,
 	PZFloatKeyCode,
+	PZFuncKeyCode
 } PZKeyCode ;
 
