@@ -14,9 +14,9 @@ static const NSInteger PZNoButtonIndex		= -1 ;
 - (id) initWithCoder:(NSCoder *)aDecoder
 {
 	if((self = [super initWithCoder: aDecoder]) != nil){
-		self.layer.borderColor = [UIColor grayColor].CGColor;
-		self.layer.borderWidth = 1.0f;
-		self.layer.cornerRadius = 7.5f;
+		self.layer.shadowOpacity = 0.5f;//shadow
+		self.layer.shadowOffset = CGSizeMake(2, 2);//shadow
+		
 		self.buttonId = PZNoButtonIndex ;
 	}
 	return self ;
