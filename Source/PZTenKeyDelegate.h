@@ -1,6 +1,6 @@
 /**
  * @file	PZTenKeyDelegate.h
- * @brief	Data source and delegate for collection view
+ * @brief	Data source and delegate for ten key view
  * @par Copyright
  *   Copyright (C) 2011 Steel Wheels Project
  */

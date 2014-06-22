@@ -10,7 +10,8 @@
 
 @interface PZViewController ()
 
-@property (weak, nonatomic) IBOutlet UICollectionView *tenKeyView;
+@property (weak, nonatomic) IBOutlet UICollectionView *	tenKeyView;
+@property (weak, nonatomic) IBOutlet UITableView *	calcSheetView ;
 
 @end
 
@@ -20,17 +21,21 @@
 
 - (void) dealloc
 {
+	calcSheetDelegate = nil ;
 	tenKeyDelegate = nil ;
 }
 
 - (void) viewDidLoad
 {
 	tenKeyDelegate = [[PZTenKeyDelegate alloc] init] ;
-	tenKeyView.delegate = tenKeyDelegate ;
-	tenKeyView.dataSource = tenKeyDelegate ;
-	[super viewDidLoad];
+	self.tenKeyView.delegate = tenKeyDelegate ;
+	self.tenKeyView.dataSource = tenKeyDelegate ;
 	
-	// Do any additional setup after loading the view, typically from a nib.
+	calcSheetDelegate = [[PZCalcSheetDelegate alloc] init] ;
+	self.calcSheetView.delegate = calcSheetDelegate ;
+	self.calcSheetView.dataSource = calcSheetDelegate ;
+	
+	[super viewDidLoad];
 }
 
 - (void) didReceiveMemoryWarning
