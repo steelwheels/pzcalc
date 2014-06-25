@@ -6,8 +6,19 @@
  */
 
 #import "PZCalcSheetDelegate.h"
+#import "PZCalcField.h"
+
+#define NUMBER_OF_ROWS		3
 
 @implementation PZCalcSheetDelegate
+
+- init
+{
+	if((self = [super init]) != nil){
+		calcFields = [[NSMutableArray alloc] initWithCapacity: NUMBER_OF_ROWS] ;
+	}
+	return self ;
+}
 
 - (NSInteger) numberOfSectionsInTableView: (UITableView *) tableView
 {
@@ -19,7 +30,7 @@
 {
 	((void) tableView) ;
 	((void) section) ;
-	return 3 ;
+	return NUMBER_OF_ROWS ;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -27,9 +38,12 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-	UITableViewCell * cell;
+	PZCalcField * cell;
 	cell = [tableView dequeueReusableCellWithIdentifier: @"field" forIndexPath: indexPath];
-
+	[cell clear] ;
+	
+	[calcFields addObject: cell] ;
+	
 	return cell ;	
 }
 

@@ -27,7 +27,7 @@
 
 - (void) viewDidLoad
 {
-	tenKeyDelegate = [[PZTenKeyDelegate alloc] init] ;
+	tenKeyDelegate = [[PZTenKeyDelegate alloc] initWithController: self] ;
 	self.tenKeyView.delegate = tenKeyDelegate ;
 	self.tenKeyView.dataSource = tenKeyDelegate ;
 	
@@ -42,6 +42,11 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void) pushTenKey: (PZKeyCode) code
+{
+	NSLog(@"Key %u", code) ;
 }
 
 @end

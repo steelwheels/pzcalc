@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		054BDAAF1956E06500779918 /* PZCalcSheetDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 054BDAAE1956E06500779918 /* PZCalcSheetDelegate.m */; };
+		054E8ED11958793300E07738 /* PZCalcField.m in Sources */ = {isa = PBXBuildFile; fileRef = 054E8ED01958793300E07738 /* PZCalcField.m */; };
 		054E99A91945EE2900BC11C2 /* PZButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 054E99A81945EE2900BC11C2 /* PZButton.m */; };
 		054EEBEA19444B6500856D95 /* PZTenKeyDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 054EEBE919444B6500856D95 /* PZTenKeyDelegate.m */; };
 		055BF56F1944425600D516A7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF56E1944425600D516A7 /* Foundation.framework */; };
@@ -41,6 +42,8 @@
 		054BDAAD1956E06500779918 /* PZCalcSheetDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZCalcSheetDelegate.h; path = Source/PZCalcSheetDelegate.h; sourceTree = SOURCE_ROOT; };
 		054BDAAE1956E06500779918 /* PZCalcSheetDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PZCalcSheetDelegate.m; path = Source/PZCalcSheetDelegate.m; sourceTree = SOURCE_ROOT; };
 		054BDAB01956E12900779918 /* PZForwarders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZForwarders.h; path = Source/PZForwarders.h; sourceTree = SOURCE_ROOT; };
+		054E8ECF1958793300E07738 /* PZCalcField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZCalcField.h; path = Source/PZCalcField.h; sourceTree = SOURCE_ROOT; };
+		054E8ED01958793300E07738 /* PZCalcField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PZCalcField.m; path = Source/PZCalcField.m; sourceTree = SOURCE_ROOT; };
 		054E99A71945EE2900BC11C2 /* PZButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZButton.h; path = Source/PZButton.h; sourceTree = SOURCE_ROOT; };
 		054E99A81945EE2900BC11C2 /* PZButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PZButton.m; path = Source/PZButton.m; sourceTree = SOURCE_ROOT; };
 		054EEBE819444B6500856D95 /* PZTenKeyDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZTenKeyDelegate.h; path = Source/PZTenKeyDelegate.h; sourceTree = SOURCE_ROOT; };
@@ -138,6 +141,8 @@
 				054E99A81945EE2900BC11C2 /* PZButton.m */,
 				054BDAAD1956E06500779918 /* PZCalcSheetDelegate.h */,
 				054BDAAE1956E06500779918 /* PZCalcSheetDelegate.m */,
+				054E8ECF1958793300E07738 /* PZCalcField.h */,
+				054E8ED01958793300E07738 /* PZCalcField.m */,
 				055BF5801944425600D516A7 /* Main_iPhone.storyboard */,
 				055BF5831944425600D516A7 /* Main_iPad.storyboard */,
 				055BF5891944425600D516A7 /* Images.xcassets */,
@@ -274,6 +279,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				054E8ED11958793300E07738 /* PZCalcField.m in Sources */,
 				055BF5881944425600D516A7 /* PZViewController.m in Sources */,
 				054BDAAF1956E06500779918 /* PZCalcSheetDelegate.m in Sources */,
 				054E99A91945EE2900BC11C2 /* PZButton.m in Sources */,

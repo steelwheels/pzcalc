@@ -6,6 +6,7 @@
  */
 
 #import "PZTenKeyDelegate.h"
+#import "PZViewController.h"
 #import "PZButton.h"
 #import "PZKeyCode.h"
 
@@ -36,13 +37,14 @@ static NSString * s_keyValues[][NUMBER_OF_ITEMS] = {
 
 @implementation PZTenKeyDelegate
 
-- (id) init
+- (id) initWithController: (PZViewController *) controller 
 {
 	if((self = [super init]) != nil){
-		NSLog(@"init") ;
+		ownerController = controller ;
 		self.tenKeyState = PZDecTenKeyState ;
 		self.buttonArray = [[NSMutableArray alloc] initWithCapacity: NUMBER_OF_ITEMS] ;
 	}
+	
 	return self ;
 }
 
@@ -92,7 +94,7 @@ static NSString * s_keyValues[][NUMBER_OF_ITEMS] = {
 		nextbutton.selected = true ;
 		self.tenKeyState = nextstate ;
 	} else {
-		NSLog(@"clicked %u", (unsigned int) button.buttonId) ;
+		[ownerController pushTenKey: button.buttonId] ;
 	}
 }
 

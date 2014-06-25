@@ -6,6 +6,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "PZForwarders.h"
 
 typedef enum {
 	PZDecTenKeyState		= 0,
@@ -15,10 +16,13 @@ typedef enum {
 } PZTenKeyState ;
 
 @interface PZTenKeyDelegate : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
+{
+	PZViewController *	ownerController ;
+}
 
 @property (nonatomic) PZTenKeyState			tenKeyState ;
 @property (nonatomic) NSMutableArray *			buttonArray ;
 
-- (id) init ;
+- (id) initWithController: (PZViewController *) controller ;
 
 @end

@@ -6,7 +6,13 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "PZForwarders.h"
 
 @interface PZCalcSheetDelegate : NSObject <UITableViewDataSource, UITableViewDelegate>
+{
+	NSMutableArray *		calcFields ;
+}
+
+- init ;
 
 @end
