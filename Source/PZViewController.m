@@ -46,7 +46,7 @@
 
 - (void) pushTenKey: (PZKeyCode) code
 {
-	NSLog(@"Key %u", code) ;
+	[calcSheetDelegate pushTenKey: code] ;
 }
 
 @end

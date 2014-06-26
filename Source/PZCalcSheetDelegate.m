@@ -40,11 +40,27 @@
 {
 	PZCalcField * cell;
 	cell = [tableView dequeueReusableCellWithIdentifier: @"field" forIndexPath: indexPath];
-	[cell clear] ;
+	[cell setup] ;
 	
-	[calcFields addObject: cell] ;
+	/* Add cell to the array */
+	NSUInteger index = [indexPath indexAtPosition: 1] ; /* index in the section 0 */
+	if([calcFields count] >= index){
+		[calcFields addObject: cell] ;
+	} else {
+		[calcFields setObject: cell atIndexedSubscript: index] ;
+	}
+	
+	/* activate the 1st cell */
+	if(index == 0){
+		[cell activate] ;
+	}
 	
 	return cell ;	
+}
+
+- (void) pushTenKey: (PZKeyCode) code
+{
+	
 }
 
 @end

@@ -9,10 +9,20 @@
 
 @implementation PZCalcField
 
-- (void) clear
+- (void) setup
 {
+	//PZExpFieldDelegate * expdelegate = [[PZExpFieldDelegate alloc] init] ;
+	
 	self.resultLabel.text = @"" ;
-	self.calcLabel.text = @"" ;
+	self.expressionField.text = @"" ;
+	//self.expressionField.delegate = expdelegate ;
 }
+
+- (void) activate
+{
+	[self.expressionField resignFirstResponder] ;
+}
+
+
 
 @end

@@ -10,8 +10,10 @@
 @interface PZCalcField : UITableViewCell
 
 @property (weak, nonatomic) IBOutlet UILabel * resultLabel ;
-@property (weak, nonatomic) IBOutlet UILabel * calcLabel ;
+@property (weak, nonatomic) IBOutlet UITextField * expressionField ;
 
-- (void) clear ;
+- (void) setup ;
+- (void) activate ;
+
 
 @end
