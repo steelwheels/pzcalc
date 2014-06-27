@@ -8,7 +8,6 @@
 #import "PZTenKeyDelegate.h"
 #import "PZViewController.h"
 #import "PZButton.h"
-#import "PZKeyCode.h"
 
 #define NUMBER_OF_ROWS		5
 #define NUMBER_OF_COLS		5
@@ -20,14 +19,14 @@ static NSString * s_keyValues[][NUMBER_OF_ITEMS] = {
 		@"Hex",		@"7",		@"8",		@"9",		@"-",
 		@"Float",	@"4",		@"5",		@"6",		@"*",
 		@"Func",	@"1",		@"2",		@"3",		@"/",
-		@"-",		@"0",		@".",		@"(..)",	@"Ret"
+		@"-",		@"0",		@".",		@"←",		@"→"
 	},
 	/* Hex */ {
 		@"Dec",		@"Clr",		@"A",		@"B",		@"C",
 		@"Hex",		@"7",		@"8",		@"9",		@"D",
 		@"Float",	@"4",		@"5",		@"6",		@"E",
 		@"Func",	@"1",		@"2",		@"3",		@"F",
-		@"-",		@"0",		@".",		@"(..)",	@"Ret"
+		@"-",		@"0",		@".",		@"←",		@"→"
 	}
 } ;
 
@@ -94,7 +93,7 @@ static NSString * s_keyValues[][NUMBER_OF_ITEMS] = {
 		nextbutton.selected = true ;
 		self.tenKeyState = nextstate ;
 	} else {
-		[ownerController pushTenKey: button.buttonId] ;
+		[ownerController pushTenKey: s_keyValues[self.tenKeyState][button.buttonId]] ;
 	}
 }
 

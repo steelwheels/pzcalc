@@ -16,6 +16,7 @@
 {
 	if((self = [super init]) != nil){
 		calcFields = [[NSMutableArray alloc] initWithCapacity: NUMBER_OF_ROWS] ;
+		activeFieldIndex = 0 ;
 	}
 	return self ;
 }
@@ -51,16 +52,17 @@
 	}
 	
 	/* activate the 1st cell */
-	if(index == 0){
+	if(index == activeFieldIndex){
 		[cell activate] ;
 	}
 	
 	return cell ;	
 }
 
-- (void) pushTenKey: (PZKeyCode) code
+- (void) pushTenKey: (NSString *) key
 {
-	
+	PZCalcField * actfield = [calcFields objectAtIndexedSubscript: activeFieldIndex] ;
+	[actfield pushTenKey: key] ;
 }
 
 @end

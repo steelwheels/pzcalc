@@ -14,6 +14,6 @@
 
 - (void) setup ;
 - (void) activate ;
-
+- (void) pushTenKey: (NSString *) key ;
 
 @end
