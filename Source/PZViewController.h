@@ -8,6 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "PZTenKeyDelegate.h"
 #import "PZCalcSheetDelegate.h"
+#import "PZKeyCode.h"
 
 @interface PZViewController : UIViewController
 {
@@ -15,6 +16,6 @@
 	PZTenKeyDelegate *	tenKeyDelegate ;
 }
 
-- (void) pushTenKey: (NSString *) code ;
+- (void) pushTenKey: (PZKeyCode) code ;
 
 @end

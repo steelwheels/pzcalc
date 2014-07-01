@@ -8,26 +8,34 @@
 #import "PZTenKeyDelegate.h"
 #import "PZViewController.h"
 #import "PZButton.h"
+#import "PZKeyCode.h"
 
 #define NUMBER_OF_ROWS		5
 #define NUMBER_OF_COLS		5
 #define NUMBER_OF_ITEMS		(NUMBER_OF_ROWS * NUMBER_OF_COLS)
 
-static NSString * s_keyValues[][NUMBER_OF_ITEMS] = {
-	/* Dec */ {
-		@"Dec",		@"Clr",		@"-",		@"+/-",		@"+",
-		@"Hex",		@"7",		@"8",		@"9",		@"-",
-		@"Float",	@"4",		@"5",		@"6",		@"*",
-		@"Func",	@"1",		@"2",		@"3",		@"/",
-		@"-",		@"0",		@".",		@"←",		@"→"
-	},
-	/* Hex */ {
-		@"Dec",		@"Clr",		@"A",		@"B",		@"C",
-		@"Hex",		@"7",		@"8",		@"9",		@"D",
-		@"Float",	@"4",		@"5",		@"6",		@"E",
-		@"Func",	@"1",		@"2",		@"3",		@"F",
-		@"-",		@"0",		@".",		@"←",		@"→"
-	}
+struct PZKeyInfo {
+	PZKeyCode			keyCode ;
+	const char *			keyString ;
+} ;
+
+#define S(T, S)	{ .keyCode = PZ ## T ## Key, .keyString = (S) }
+
+static struct PZKeyInfo s_keyValues[][NUMBER_OF_ITEMS] = {
+ /* Dec */ {
+ S(DecState, "Dec"),	S(Clear, "Clr"),	S(Nop, "-"),	S(Negate, "+/-"), S(Del, "⌫"),
+ S(HexState, "Hex"),	S(7, "7"),		S(8, "8"),	S(9, "9"),	  S(Nop, "-"),
+ S(FuncState, "Func"),	S(4, "4"),		S(5, "5"),	S(6, "6"),	  S(Mul, "*"),
+ S(Nop, "-"),		S(1, "1"),		S(2, "2"),	S(3, "3"),	  S(Ret, "⏎"),
+ S(Nop, "-"),		S(0, "0"),		S(Dot, "."),	S(Left, "◀︎"),	  S(Right, "▶︎")
+},
+ /* Hex */ {
+ S(DecState, "Dec"),	S(Clear, "Clr"),	S(A, "A"),	S(B, "B"),	S(C, "C"),
+ S(HexState, "Hex"),	S(7, "7"),		S(8, "8"),	S(9, "9"),	S(D, "D"),
+ S(FuncState,"Func"),	S(4, "4"),		S(5, "5"),	S(6, "6"),	S(E, "E"),
+ S(Nop, "-"),		S(1, "1"),		S(2, "2"),	S(3, "3"),	S(F, "F"),
+ S(Nop, "-"),		S(0, "0"),		S(0X, "0x"),	S(Left, "←"),	S(Right, "→")
+}
 } ;
 
 @interface PZTenKeyDelegate ()
@@ -69,7 +77,9 @@ static NSString * s_keyValues[][NUMBER_OF_ITEMS] = {
 	
 	[self.buttonArray addObject: button] ;
 	
-	NSString * label = s_keyValues[self.tenKeyState][button.buttonId] ;
+	const char * labstr = s_keyValues[self.tenKeyState][button.buttonId].keyString ;
+	NSString * label  = [[NSString alloc] initWithUTF8String: labstr] ;
+	
 	[button setTitle: label forState: UIControlStateNormal] ;
 	[button addTarget: self action: @selector(clickEvent:event:) forControlEvents: UIControlEventTouchUpInside] ;
 	
@@ -93,7 +103,7 @@ static NSString * s_keyValues[][NUMBER_OF_ITEMS] = {
 		nextbutton.selected = true ;
 		self.tenKeyState = nextstate ;
 	} else {
-		[ownerController pushTenKey: s_keyValues[self.tenKeyState][button.buttonId]] ;
+		[ownerController pushTenKey: s_keyValues[self.tenKeyState][button.buttonId].keyCode] ;
 	}
 }
 

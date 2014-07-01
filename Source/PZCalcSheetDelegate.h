@@ -7,6 +7,7 @@
 
 #import <UIKit/UIKit.h>
 #import "PZForwarders.h"
+#import "PZKeyCode.h"
 
 @interface PZCalcSheetDelegate : NSObject <UITableViewDataSource, UITableViewDelegate>
 {
@@ -15,6 +16,6 @@
 }
 
 - init ;
-- (void) pushTenKey: (NSString *) key ;
+- (void) pushTenKey: (PZKeyCode) code ;
 
 @end

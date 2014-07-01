@@ -59,10 +59,10 @@
 	return cell ;	
 }
 
-- (void) pushTenKey: (NSString *) key
+- (void) pushTenKey: (PZKeyCode) code
 {
 	PZCalcField * actfield = [calcFields objectAtIndexedSubscript: activeFieldIndex] ;
-	[actfield pushTenKey: key] ;
+	[actfield pushTenKey: code] ;
 }
 
 @end

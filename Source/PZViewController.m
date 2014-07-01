@@ -44,9 +44,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void) pushTenKey: (NSString *) key
+- (void) pushTenKey: (PZKeyCode) code
 {
-	[calcSheetDelegate pushTenKey: key] ;
+	[calcSheetDelegate pushTenKey: code] ;
 }
 
 @end

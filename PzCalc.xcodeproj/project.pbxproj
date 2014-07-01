@@ -39,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		050717C519602E9200A069A8 /* PZKeyCode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZKeyCode.h; path = Source/PZKeyCode.h; sourceTree = SOURCE_ROOT; };
 		054BDAAD1956E06500779918 /* PZCalcSheetDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZCalcSheetDelegate.h; path = Source/PZCalcSheetDelegate.h; sourceTree = SOURCE_ROOT; };
 		054BDAAE1956E06500779918 /* PZCalcSheetDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PZCalcSheetDelegate.m; path = Source/PZCalcSheetDelegate.m; sourceTree = SOURCE_ROOT; };
 		054BDAB01956E12900779918 /* PZForwarders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZForwarders.h; path = Source/PZForwarders.h; sourceTree = SOURCE_ROOT; };
@@ -137,6 +138,7 @@
 				054EEBE919444B6500856D95 /* PZTenKeyDelegate.m */,
 				054E99A71945EE2900BC11C2 /* PZButton.h */,
 				054E99A81945EE2900BC11C2 /* PZButton.m */,
+				050717C519602E9200A069A8 /* PZKeyCode.h */,
 				054BDAAD1956E06500779918 /* PZCalcSheetDelegate.h */,
 				054BDAAE1956E06500779918 /* PZCalcSheetDelegate.m */,
 				054E8ECF1958793300E07738 /* PZCalcField.h */,

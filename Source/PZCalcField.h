@@ -6,6 +6,8 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "PZForwarders.h"
+#import "PZKeyCode.h"
 
 @interface PZCalcField : UITableViewCell
 
@@ -14,6 +16,13 @@
 
 - (void) setup ;
 - (void) activate ;
-- (void) pushTenKey: (NSString *) key ;
+
+  /**
+   * @brief Tell push key event to calc field
+   * @retval True	The key even is accepted by the field
+   * @retval False	The event is NOT accepted
+   * @param code Pressed key code
+   */
+- (BOOL) pushTenKey: (PZKeyCode) code ;
 
 @end
