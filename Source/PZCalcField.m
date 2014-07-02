@@ -7,48 +7,56 @@
 
 #import "PZCalcField.h"
 
-static inline NSString *
-insertStringToString(NSString * dst, NSInteger idx, NSString * src)
+/*
+ * @par reference
+ * http://glayash.blogspot.jp/2012/08/uitextfielduitextrageuitextposition.html
+ */
+static inline void
+moveForward(UITextField * field)
 {
-	return [NSString stringWithFormat: @"%@%@%@", [dst substringToIndex: idx], src, [dst substringFromIndex: idx]];
-}
-
-static inline NSInteger
-currentCursorPosition(UITextField * inputField)
-{
-	UITextRange *	 selRange = inputField.selectedTextRange ;
-        UITextPosition * selStartPos = selRange.start ;
-        return [inputField offsetFromPosition: inputField.beginningOfDocument toPosition: selStartPos];
-}
-
-static void
-setCursorPosition(UITextField * inputfield, NSInteger pos)
-{
-	if(pos < 0){
-		pos = 0 ;
-	} else {
-		NSInteger len = inputfield.text.length ;
-		if(len > 0){
-			if(pos > len){
-				pos = len ;
-			}
-		} else {
-			pos = 0 ;
-		}
-	}
+	UITextRange *currange = field.selectedTextRange;
+        if([currange.start isEqual: field.endOfDocument]){
+                return;
+        }
 	
-	NSRange range = NSMakeRange(pos, 0) ;
-	UITextPosition *from = [inputfield positionFromPosition:[inputfield beginningOfDocument] offset:range.location];
-	UITextPosition *to = [inputfield positionFromPosition:from offset:range.length];
-	[inputfield setSelectedTextRange: [inputfield textRangeFromPosition:from toPosition:to]];
+        UITextPosition *newpos = [field positionFromPosition: currange.start offset:+1];
+	
+        UITextRange *newrange;
+        if([currange isEmpty]){
+                newrange = [field textRangeFromPosition: newpos
+                                             toPosition: newpos];
+        } else {
+                newrange = [field textRangeFromPosition: newpos
+                                             toPosition: currange.end];
+        }
+        field.selectedTextRange = newrange;
 }
 
-static void
+static inline void
+moveBackword(UITextField * field)
+{
+	UITextRange *currange = field.selectedTextRange;
+        if([currange.start isEqual: field.beginningOfDocument]){
+                return;
+        }
+	
+        UITextPosition *newpos = [field positionFromPosition: currange.start offset:-1];
+	
+        UITextRange *newrange;
+        if([currange isEmpty]){
+                newrange = [field textRangeFromPosition: newpos
+                                             toPosition: newpos];
+        } else {
+                newrange = [field textRangeFromPosition: newpos
+                                             toPosition: currange.end];
+        }
+        field.selectedTextRange = newrange;
+}
+
+static inline void
 insertStringToTextField(UITextField * field, NSString * str)
 {
-	NSInteger curpos = currentCursorPosition(field) ;
-	NSString * newstr = insertStringToString(field.text, curpos, str) ;
-	field.text = newstr ;
+	[field insertText: str] ;
 }
 
 static void
@@ -106,13 +114,11 @@ clearStringInTextField(UITextField * field)
 		case PZClearKey: {
 			clearStringInTextField(infield) ;
 		} break ;
-		case PZLeftKey: {
-			NSInteger pos = currentCursorPosition(infield) ;
-			setCursorPosition(infield, pos-1) ;
+		case PZMovLeftKey: {
+			moveBackword(infield) ;
 		} break ;
-		case PZRightKey: {
-			NSInteger pos = currentCursorPosition(infield) ;
-			setCursorPosition(infield, pos+1) ;
+		case PZMovRightKey: {
+			moveForward(infield) ;
 		} break ;
 		case PZRetKey: {
 			accepted = false ;
@@ -120,23 +126,26 @@ clearStringInTextField(UITextField * field)
 		case PZDelKey: {
 			deleteCharAtCurrentPosition(infield) ;
 		} break ;
-		case PZNegateKey: {
-			
-		} break ;
 		case PZAddKey: {
-			
+			insertStringToTextField(infield, @"+") ;
 		} break ;
 		case PZSubKey: {
-			
+			insertStringToTextField(infield, @"-") ;
 		} break ;
 		case PZMulKey: {
-			
+			insertStringToTextField(infield, @"*") ;
 		} break ;
 		case PZDivKey: {
-			
+			insertStringToTextField(infield, @"/") ;
 		} break ;
 		case PZModKey: {
-			
+			insertStringToTextField(infield, @"%") ;
+		} break ;
+		case PZLeftParKey: {
+			insertStringToTextField(infield, @"(") ;
+		} break ;
+		case PZRightParKey: {
+			insertStringToTextField(infield, @")") ;
 		} break ;
 		case PZ0Key: {
 			insertStringToTextField(infield, @"0") ;

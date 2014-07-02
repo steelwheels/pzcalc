@@ -11,6 +11,7 @@
 @class PZViewController ;
 @class PZTenKeyDelegate ;
 @class PZCalcSheetDelegate ;
+@class PZButton ;
 
 #endif	/* PZFORWARDERS_H */
 

@@ -6,13 +6,15 @@
  */
 
 #import <UIKit/UIKit.h>
+#import "PZKeyCode.h"
 
 @interface PZButton : UIButton
 {
 	
 }
 
-@property (nonatomic) NSInteger buttonId ;
+@property (nonatomic, assign) NSInteger buttonId ;
+@property (nonatomic, assign) PZKeyCode keyCode ;
 
 - (id) initWithCoder:(NSCoder *)aDecoder ;
 

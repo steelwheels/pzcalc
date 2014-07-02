@@ -18,6 +18,7 @@ typedef enum {
 @interface PZTenKeyDelegate : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>
 {
 	PZViewController *	ownerController ;
+	PZButton *		currentStateButton ;
 }
 
 @property (nonatomic) PZTenKeyState			tenKeyState ;

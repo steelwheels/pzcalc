@@ -23,18 +23,18 @@ struct PZKeyInfo {
 
 static struct PZKeyInfo s_keyValues[][NUMBER_OF_ITEMS] = {
  /* Dec */ {
- S(DecState, "Dec"),	S(Clear, "Clr"),	S(Nop, "-"),	S(Negate, "+/-"), S(Del, "⌫"),
- S(HexState, "Hex"),	S(7, "7"),		S(8, "8"),	S(9, "9"),	  S(Nop, "-"),
- S(FuncState, "Func"),	S(4, "4"),		S(5, "5"),	S(6, "6"),	  S(Mul, "*"),
- S(Nop, "-"),		S(1, "1"),		S(2, "2"),	S(3, "3"),	  S(Ret, "⏎"),
- S(Nop, "-"),		S(0, "0"),		S(Dot, "."),	S(Left, "◀︎"),	  S(Right, "▶︎")
+ S(DecState, "Dec"),	S(HexState, "Hex"),	S(FuncState, "Func"),	S(Del, "⌫"),		S(Ret, "⏎"),
+ S(7, "7"),		S(8, "8"),		S(9, "9"),		S(LeftPar, "("),	S(RightPar, ")"),
+ S(4, "4"),		S(5, "5"),		S(6, "6"),		S(Mul, "*"),		S(Div, "/"),
+ S(1, "1"),		S(2, "2"),		S(3, "3"),		S(Add, "+"),		S(Sub, "-"),
+ S(0, "0"),		S(Dot, "."),		S(Nop, ""),		S(MovLeft, "◀︎"),	S(MovRight, "▶︎")
 },
  /* Hex */ {
- S(DecState, "Dec"),	S(Clear, "Clr"),	S(A, "A"),	S(B, "B"),	S(C, "C"),
- S(HexState, "Hex"),	S(7, "7"),		S(8, "8"),	S(9, "9"),	S(D, "D"),
- S(FuncState,"Func"),	S(4, "4"),		S(5, "5"),	S(6, "6"),	S(E, "E"),
- S(Nop, "-"),		S(1, "1"),		S(2, "2"),	S(3, "3"),	S(F, "F"),
- S(Nop, "-"),		S(0, "0"),		S(0X, "0x"),	S(Left, "←"),	S(Right, "→")
+ S(DecState, "Dec"),	S(HexState, "Hex"),	S(FuncState, "Func"),	S(Del, "⌫"),		S(Ret, "⏎"),
+ S(7, "7"),		S(8, "8"),		S(9, "9"),		S(E, "E"),		S(F, "F"),
+ S(4, "4"),		S(5, "5"),		S(6, "6"),		S(C, "C"),		S(D, "D"),
+ S(1, "1"),		S(2, "2"),		S(3, "3"),		S(A, "A"),		S(B, "B"),
+ S(0, "0"),		S(Dot, "."),		S(Nop, ""),		S(MovLeft, "◀︎"),	S(MovRight, "▶︎")
 }
 } ;
 
@@ -48,10 +48,10 @@ static struct PZKeyInfo s_keyValues[][NUMBER_OF_ITEMS] = {
 {
 	if((self = [super init]) != nil){
 		ownerController = controller ;
+		currentStateButton = nil ;
 		self.tenKeyState = PZDecTenKeyState ;
 		self.buttonArray = [[NSMutableArray alloc] initWithCapacity: NUMBER_OF_ITEMS] ;
 	}
-	
 	return self ;
 }
 
@@ -80,10 +80,13 @@ static struct PZKeyInfo s_keyValues[][NUMBER_OF_ITEMS] = {
 	const char * labstr = s_keyValues[self.tenKeyState][button.buttonId].keyString ;
 	NSString * label  = [[NSString alloc] initWithUTF8String: labstr] ;
 	
+	button.keyCode = s_keyValues[self.tenKeyState][button.buttonId].keyCode ;
+	
 	[button setTitle: label forState: UIControlStateNormal] ;
 	[button addTarget: self action: @selector(clickEvent:event:) forControlEvents: UIControlEventTouchUpInside] ;
 	
-	if(button.buttonId == 0){
+	if(button.keyCode == PZDecStateKey){
+		currentStateButton = button ;
 		button.selected = true ;
 		self.tenKeyState = PZDecTenKeyState ;
 	}
@@ -94,15 +97,27 @@ static struct PZKeyInfo s_keyValues[][NUMBER_OF_ITEMS] = {
 {
 	PZButton * button = sender ;
 	
-	NSUInteger bid = button.buttonId ;
-	if((bid % NUMBER_OF_ROWS) == 0){
-		PZTenKeyState nextstate = (PZTenKeyState) (bid / NUMBER_OF_ROWS) ;
-		PZButton * prevbutton = [self.buttonArray objectAtIndex: self.tenKeyState * NUMBER_OF_ROWS] ;
-		PZButton * nextbutton = [self.buttonArray objectAtIndex: nextstate * NUMBER_OF_ROWS] ;
-		prevbutton.selected = false ;
-		nextbutton.selected = true ;
-		self.tenKeyState = nextstate ;
-	} else {
+	PZKeyCode code = button.keyCode ;
+	if((code & PZStateKeyMask) != 0){
+		if(currentStateButton != button){
+			currentStateButton.selected = false ;
+			switch(code){
+				case PZDecStateKey:
+					self.tenKeyState = PZDecTenKeyState ;
+				break ;
+				case PZHexStateKey:
+					self.tenKeyState = PZHexTenKeyState ;
+				break ;
+				case PZFuncStateKey:
+					self.tenKeyState = PZFuncTenKeyState ;
+				break ;
+				default:
+				break ;
+			}
+			currentStateButton = button ;
+			currentStateButton.selected = true ;
+		}
+	} else if(code != PZNopKey){
 		[ownerController pushTenKey: s_keyValues[self.tenKeyState][button.buttonId].keyCode] ;
 	}
 }
