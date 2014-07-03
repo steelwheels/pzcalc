@@ -35,6 +35,13 @@ static struct PZKeyInfo s_keyValues[][NUMBER_OF_ITEMS] = {
  S(4, "4"),		S(5, "5"),		S(6, "6"),		S(C, "C"),		S(D, "D"),
  S(1, "1"),		S(2, "2"),		S(3, "3"),		S(A, "A"),		S(B, "B"),
  S(0, "0"),		S(Dot, "."),		S(Nop, ""),		S(MovLeft, "◀︎"),	S(MovRight, "▶︎")
+},
+ /* Op */ {
+ S(DecState, "Dec"),	S(HexState, "Hex"),	S(FuncState, "Func"),	S(Del, "⌫"),		S(Ret, "⏎"),
+ S(7, "7"),		S(8, "8"),		S(9, "9"),		S(LeftPar, "("),	S(RightPar, ")"),
+ S(4, "4"),		S(5, "5"),		S(6, "6"),		S(Equal, "="),		S(Not, "!"),
+ S(1, "1"),		S(2, "2"),		S(3, "3"),		S(Less, "<"),		S(Greater, ">"),
+ S(Equal, "="),		S(Dot, "."),		S(Nop, ""),		S(MovLeft, "◀︎"),	S(MovRight, "▶︎")
 }
 } ;
 
@@ -98,7 +105,7 @@ static struct PZKeyInfo s_keyValues[][NUMBER_OF_ITEMS] = {
 	PZButton * button = sender ;
 	
 	PZKeyCode code = button.keyCode ;
-	if((code & PZStateKeyMask) != 0){
+	if((code & PZKeyMask) == PZStateKeyMask){
 		if(currentStateButton != button){
 			currentStateButton.selected = false ;
 			switch(code){

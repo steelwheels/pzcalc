@@ -11,8 +11,7 @@
 typedef enum {
 	PZDecTenKeyState		= 0,
 	PZHexTenKeyState		= 1,
-	PZFloatTenKeyState		= 2,
-	PZFuncTenKeyState		= 3
+	PZFuncTenKeyState		= 2
 } PZTenKeyState ;
 
 @interface PZTenKeyDelegate : NSObject <UICollectionViewDataSource, UICollectionViewDelegate>

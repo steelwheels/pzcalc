@@ -141,6 +141,18 @@ clearStringInTextField(UITextField * field)
 		case PZModKey: {
 			insertStringToTextField(infield, @"%") ;
 		} break ;
+		case PZLessKey: {
+			insertStringToTextField(infield, @"<") ;
+		} break ;
+		case PZGreaterKey: {
+			insertStringToTextField(infield, @">") ;
+		} break ;
+		case PZEqualKey: {
+			insertStringToTextField(infield, @"=") ;
+		} break ;
+		case PZNotKey: {
+			insertStringToTextField(infield, @"!") ;
+		} break ;
 		case PZLeftParKey: {
 			insertStringToTextField(infield, @"(") ;
 		} break ;
