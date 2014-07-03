@@ -61,8 +61,21 @@
 
 - (void) pushTenKey: (PZKeyCode) code
 {
-	PZCalcField * actfield = [calcFields objectAtIndexedSubscript: activeFieldIndex] ;
-	[actfield pushTenKey: code] ;
+	
+	switch (code) {
+		case PZRetKey: {
+			NSUInteger nextindex = activeFieldIndex + 1 ;
+			if(nextindex < [calcFields count]){
+				PZCalcField * nextfield = [calcFields objectAtIndexedSubscript: nextindex] ;
+				[nextfield activate] ;
+				activeFieldIndex = nextindex ;
+			}
+		} break;
+		default: {
+			PZCalcField * actfield = [calcFields objectAtIndexedSubscript: activeFieldIndex] ;
+			[actfield pushTenKey: code] ;
+		} break;
+	}
 }
 
 @end

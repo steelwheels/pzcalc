@@ -22,7 +22,8 @@ typedef enum {
 	
 	PZDecStateKey			= PZStateKeyMask	| 0x0001,
 	PZHexStateKey			= PZStateKeyMask	| 0x0002,
-	PZFuncStateKey			= PZStateKeyMask	| 0x0003,
+	PZOpStateKey			= PZStateKeyMask	| 0x0003,
+	PZFuncStateKey			= PZStateKeyMask	| 0x0004,
 	
 	PZClearKey			= PZEditKeyMask		| 0x0001,
 	PZMovLeftKey			= PZEditKeyMask		| 0x0002,

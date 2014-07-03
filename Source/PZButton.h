@@ -14,7 +14,6 @@
 }
 
 @property (nonatomic, assign) NSInteger buttonId ;
-@property (nonatomic, assign) PZKeyCode keyCode ;
 
 - (id) initWithCoder:(NSCoder *)aDecoder ;
 

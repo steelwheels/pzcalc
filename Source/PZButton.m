@@ -18,12 +18,10 @@ static const NSInteger PZNoButtonIndex		= -1 ;
 		self.layer.shadowOffset = CGSizeMake(2, 2);//shadow
 		
 		self.buttonId = PZNoButtonIndex ;
-		self.keyCode = PZNopKey ;
 	}
 	return self ;
 }
 
 @synthesize buttonId ;
-@synthesize keyCode ;
 
 @end
