@@ -12,6 +12,7 @@
 @class PZTenKeyDelegate ;
 @class PZCalcSheetDelegate ;
 @class PZButton ;
+@class PZEngine ;
 
 #endif	/* PZFORWARDERS_H */
 

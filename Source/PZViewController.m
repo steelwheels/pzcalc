@@ -7,6 +7,7 @@
 
 
 #import "PZViewController.h"
+#import "PZEngine.h"
 
 @interface PZViewController ()
 
@@ -23,6 +24,7 @@
 {
 	calcSheetDelegate = nil ;
 	tenKeyDelegate = nil ;
+	calcEngine = [[PZEngine alloc] init] ;
 }
 
 - (void) viewDidLoad

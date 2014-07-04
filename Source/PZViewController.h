@@ -14,6 +14,7 @@
 {
 	PZCalcSheetDelegate *	calcSheetDelegate ;
 	PZTenKeyDelegate *	tenKeyDelegate ;
+	PZEngine *		calcEngine ;
 }
 
 - (void) pushTenKey: (PZKeyCode) code ;

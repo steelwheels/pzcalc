@@ -26,6 +26,7 @@
 		055BF5931944425600D516A7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 055BF5721944425600D516A7 /* UIKit.framework */; };
 		055BF59B1944425600D516A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 055BF5991944425600D516A7 /* InfoPlist.strings */; };
 		055BF59D1944425700D516A7 /* PzCalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 055BF59C1944425700D516A7 /* PzCalcTests.m */; };
+		0586A6D8196700120009660F /* PZEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0586A6D7196700120009660F /* PZEngine.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,9 @@
 		055BF5981944425600D516A7 /* PzCalcTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "PzCalcTests-Info.plist"; sourceTree = "<group>"; };
 		055BF59A1944425600D516A7 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		055BF59C1944425700D516A7 /* PzCalcTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = PzCalcTests.m; sourceTree = "<group>"; };
+		0586A6D6196700120009660F /* PZEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZEngine.h; path = Source/PZEngine.h; sourceTree = SOURCE_ROOT; };
+		0586A6D7196700120009660F /* PZEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PZEngine.m; path = Source/PZEngine.m; sourceTree = SOURCE_ROOT; };
+		0586A6D9196700A60009660F /* PZConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZConstant.h; path = Source/PZConstant.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -129,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				054BDAB01956E12900779918 /* PZForwarders.h */,
+				0586A6D9196700A60009660F /* PZConstant.h */,
 				055BF57A1944425600D516A7 /* PZMain.m */,
 				055BF57D1944425600D516A7 /* PZAppDelegate.h */,
 				055BF57E1944425600D516A7 /* PZAppDelegate.m */,
@@ -143,6 +148,8 @@
 				054BDAAE1956E06500779918 /* PZCalcSheetDelegate.m */,
 				054E8ECF1958793300E07738 /* PZCalcField.h */,
 				054E8ED01958793300E07738 /* PZCalcField.m */,
+				0586A6D6196700120009660F /* PZEngine.h */,
+				0586A6D7196700120009660F /* PZEngine.m */,
 				055BF5801944425600D516A7 /* Main_iPhone.storyboard */,
 				055BF5831944425600D516A7 /* Main_iPad.storyboard */,
 				055BF5891944425600D516A7 /* Images.xcassets */,
@@ -284,6 +291,7 @@
 				054BDAAF1956E06500779918 /* PZCalcSheetDelegate.m in Sources */,
 				054E99A91945EE2900BC11C2 /* PZButton.m in Sources */,
 				055BF57F1944425600D516A7 /* PZAppDelegate.m in Sources */,
+				0586A6D8196700120009660F /* PZEngine.m in Sources */,
 				054EEBEA19444B6500856D95 /* PZTenKeyDelegate.m in Sources */,
 				055BF57B1944425600D516A7 /* PZMain.m in Sources */,
 			);
