@@ -34,7 +34,7 @@ static struct PZKeyInfo s_keyValues[][NUMBER_OF_ITEMS] = {
  S(7, "7"),		S(8, "8"),		S(9, "9"),		S(E, "E"),		S(F, "F"),
  S(4, "4"),		S(5, "5"),		S(6, "6"),		S(C, "C"),		S(D, "D"),
  S(1, "1"),		S(2, "2"),		S(3, "3"),		S(A, "A"),		S(B, "B"),
- S(0, "0"),		S(Dot, "."),		S(Ret, "⏎"),		S(MovLeft, "◀︎"),	S(MovRight, "▶︎")
+ S(0, "0"),		S(0X, "0x"),		S(Ret, "⏎"),		S(MovLeft, "◀︎"),	S(MovRight, "▶︎")
 },
  /* Op */ {
  S(DecState, "Dec"),	S(HexState, "Hex"),	S(OpState, "Op"),	S(FuncState, "Func"),	S(Del, "⌫"),

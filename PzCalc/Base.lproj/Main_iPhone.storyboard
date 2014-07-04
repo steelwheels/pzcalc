@@ -16,10 +16,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottomRight" fixedFrame="YES" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="270" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UUS-7Y-2ka">
+                            <collectionView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="bottomRight" placeholderIntrinsicWidth="280" placeholderIntrinsicHeight="270" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="UUS-7Y-2ka">
                                 <rect key="frame" x="17" y="220" width="280" height="240"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="280" id="JTh-nt-5tU"/>
+                                    <constraint firstAttribute="height" constant="240" id="bbu-ND-2cG"/>
+                                </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="6" minimumInteritemSpacing="6" id="OeL-Bi-KgL">
                                     <size key="itemSize" width="50" height="40"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -50,7 +54,7 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="26" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uog-mM-Egb">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="26" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uog-mM-Egb">
                                 <rect key="frame" x="20" y="20" width="277" height="192"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -86,6 +90,14 @@
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="uog-mM-Egb" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leading" constant="20" id="F3T-CQ-ejG"/>
+                            <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="UUS-7Y-2ka" secondAttribute="bottom" constant="20" id="Mty-WT-xKJ"/>
+                            <constraint firstItem="UUS-7Y-2ka" firstAttribute="top" secondItem="uog-mM-Egb" secondAttribute="bottom" constant="8" id="ZIk-kx-lSp"/>
+                            <constraint firstAttribute="trailing" secondItem="UUS-7Y-2ka" secondAttribute="trailing" constant="23" id="kVd-hJ-Y9c"/>
+                            <constraint firstItem="uog-mM-Egb" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" id="q1e-1r-v9b"/>
+                            <constraint firstAttribute="trailing" secondItem="uog-mM-Egb" secondAttribute="trailing" constant="23" id="wOn-5T-vch"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="calcSheetView" destination="uog-mM-Egb" id="EHP-aa-K6q"/>

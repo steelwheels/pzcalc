@@ -19,8 +19,8 @@
 
   /**
    * @brief Tell push key event to calc field
-   * @retval True	The key even is accepted by the field
-   * @retval False	The event is NOT accepted
+   * @retval True	The context of the field is modified
+   * @retval False	The context of the field is NOT modified
    * @param code Pressed key code
    */
 - (BOOL) pushTenKey: (PZKeyCode) code ;

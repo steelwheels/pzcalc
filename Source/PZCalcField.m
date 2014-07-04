@@ -101,13 +101,14 @@ clearStringInTextField(UITextField * field)
 
 - (BOOL) pushTenKey: (PZKeyCode) code
 {
-	BOOL	accepted = true ;
+	BOOL	edited = true ;
 	
 	UITextField * infield = self.expressionField ;
 	switch(code){
 		case PZNopKey:
 		case PZDecStateKey:
 		case PZHexStateKey:
+		case PZOpStateKey:
 		case PZFuncStateKey: {
 			/* nothing have to do */
 		} break ;
@@ -116,12 +117,14 @@ clearStringInTextField(UITextField * field)
 		} break ;
 		case PZMovLeftKey: {
 			moveBackword(infield) ;
+			edited = false ;
 		} break ;
 		case PZMovRightKey: {
 			moveForward(infield) ;
+			edited = false ;
 		} break ;
 		case PZRetKey: {
-			accepted = false ;
+			edited = false ;
 		} break ;
 		case PZDelKey: {
 			deleteCharAtCurrentPosition(infield) ;
@@ -214,7 +217,7 @@ clearStringInTextField(UITextField * field)
 			insertStringToTextField(infield, @"0x") ;
 		} break ;
 	}
-	return accepted ;
+	return edited ;
 }
 
 @end
