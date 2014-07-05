@@ -12,6 +12,9 @@
 	NSMutableArray *		expressionArray ;
 }
 
+@property (strong, atomic) NSMutableDictionary *	resultTable ;
+
 - init ;
+- (void) setSourceText: (NSString *) text atIndex: (NSUInteger) index ;
 
 @end

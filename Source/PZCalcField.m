@@ -220,22 +220,14 @@ clearStringInTextField(UITextField * field)
 	return edited ;
 }
 
+- (void) setResultValue: (NSNumber *) value
+{
+	NSString * str = [[NSString alloc] initWithFormat: @"%@", value] ;
+	self.resultLabel.text = str ;
+}
+
 @end
 
 
 
-#if 0
-/*
- * reference: http://stackoverflow.com/questions/1500233/control-cursor-position-in-uitextfield
- */
-static void
-selectTextForInput(UITextField * inputfield, const NSRange * range)
-{
-	UITextPosition *start = [inputfield positionFromPosition:[inputfield beginningOfDocument]
-							  offset:range->location];
-	UITextPosition *end = [inputfield positionFromPosition:start
-							offset:range->length];
-	[inputfield setSelectedTextRange:[inputfield textRangeFromPosition:start toPosition:end]];
-}
-#endif
 

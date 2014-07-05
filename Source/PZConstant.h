@@ -8,7 +8,7 @@
 #ifndef PZCONSTANT_H
 #define PZCONSTANT_H
 
-#define PZNumberOfFields		128
+#define PZNumberOfCalcFields		128
 
 #endif	/* PZCONSTANT_H */
 

@@ -7,14 +7,17 @@
 
 #import "PZCalcSheetDelegate.h"
 #import "PZCalcField.h"
+#import "PZConstant.h"
 
 @implementation PZCalcSheetDelegate
+
+@synthesize activeFieldIndex ;
 
 - init
 {
 	if((self = [super init]) != nil){
-		calcFields = [[NSMutableArray alloc] initWithCapacity: PZNumberOfFields] ;
-		activeFieldIndex = 0 ;
+		calcFields = [[NSMutableArray alloc] initWithCapacity: PZNumberOfCalcFields] ;
+		self.activeFieldIndex = 0 ;
 	}
 	return self ;
 }
@@ -29,7 +32,7 @@
 {
 	((void) tableView) ;
 	((void) section) ;
-	return PZNumberOfFields ;
+	return PZNumberOfCalcFields ;
 }
 
 // Row display. Implementers should *always* try to reuse cells by setting each cell's reuseIdentifier and querying for available reusable cells with dequeueReusableCellWithIdentifier:
@@ -50,30 +53,60 @@
 	}
 	
 	/* activate the 1st cell */
-	if(index == activeFieldIndex){
+	if(index == self.activeFieldIndex){
 		[cell activate] ;
 	}
 	
 	return cell ;	
 }
 
-- (void) pushTenKey: (PZKeyCode) code
+- (BOOL) pushTenKey: (PZKeyCode) code
 {
-	
+	BOOL edited = false ;
 	switch (code) {
 		case PZRetKey: {
-			NSUInteger nextindex = activeFieldIndex + 1 ;
-			if(nextindex < [calcFields count]){
-				PZCalcField * nextfield = [calcFields objectAtIndexedSubscript: nextindex] ;
-				[nextfield activate] ;
-				activeFieldIndex = nextindex ;
+			NSUInteger nextindex = self.activeFieldIndex + 1 ;
+			if(nextindex >= [calcFields count]){
+				nextindex = 0 ;
 			}
+			PZCalcField * nextfield = [calcFields objectAtIndexedSubscript: nextindex] ;
+			[nextfield activate] ;
+			self.activeFieldIndex = nextindex ;
 		} break;
 		default: {
-			PZCalcField * actfield = [calcFields objectAtIndexedSubscript: activeFieldIndex] ;
+			PZCalcField * actfield = [calcFields objectAtIndexedSubscript: self.activeFieldIndex] ;
 			[actfield pushTenKey: code] ;
+			edited = true ;
 		} break;
 	}
+	return edited ;
+}
+
+- (void) linkWithResultTable: (NSMutableDictionary *) table
+{
+	static NSInteger	s_indexs[PZNumberOfCalcFields] ;
+	
+	NSInteger	i ;
+	for(i=0 ; i<PZNumberOfCalcFields ; i++){
+		NSString * numstr = [[NSString alloc] initWithFormat: @"%d", (int) i] ;
+		s_indexs[i] = i ;
+		[table addObserver: self forKeyPath: numstr options: NSKeyValueObservingOptionNew context: &(s_indexs[i])] ;
+	}
+}
+
+- (void) observeValueForKeyPath: (NSString *) keypath ofObject: (id) object change:(NSDictionary *) change context:(void *)context
+{
+	NSInteger		index = *((NSInteger *) context) ;
+	NSMutableDictionary *	dict = object ;
+	NSNumber *		value = [dict valueForKey: keypath] ;
+	PZCalcField *	calcfield = [calcFields objectAtIndexedSubscript: index] ;
+	[calcfield performSelectorOnMainThread: @selector(setResultValue:) withObject: value waitUntilDone: NO] ;
+}
+
+- (NSString *) activeFieldText
+{
+	PZCalcField * field = [calcFields objectAtIndexedSubscript: self.activeFieldIndex] ;
+	return field.expressionField.text ;
 }
 
 @end

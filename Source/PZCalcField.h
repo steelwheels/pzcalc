@@ -25,4 +25,6 @@
    */
 - (BOOL) pushTenKey: (PZKeyCode) code ;
 
+- (void) setResultValue: (NSNumber *) value ;
+
 @end

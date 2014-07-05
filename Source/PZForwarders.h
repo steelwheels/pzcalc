@@ -11,6 +11,7 @@
 @class PZViewController ;
 @class PZTenKeyDelegate ;
 @class PZCalcSheetDelegate ;
+@class PZCalcField ;
 @class PZButton ;
 @class PZEngine ;
 

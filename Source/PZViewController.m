@@ -22,13 +22,15 @@
 
 - (void) dealloc
 {
+	calcEngine = nil ;
 	calcSheetDelegate = nil ;
 	tenKeyDelegate = nil ;
-	calcEngine = [[PZEngine alloc] init] ;
 }
 
 - (void) viewDidLoad
 {
+	calcEngine = [[PZEngine alloc] init] ;
+	
 	tenKeyDelegate = [[PZTenKeyDelegate alloc] initWithController: self] ;
 	self.tenKeyView.delegate = tenKeyDelegate ;
 	self.tenKeyView.dataSource = tenKeyDelegate ;
@@ -36,6 +38,8 @@
 	calcSheetDelegate = [[PZCalcSheetDelegate alloc] init] ;
 	self.calcSheetView.delegate = calcSheetDelegate ;
 	self.calcSheetView.dataSource = calcSheetDelegate ;
+	
+	[calcSheetDelegate linkWithResultTable: calcEngine.resultTable] ;
 	
 	[super viewDidLoad];
 }
@@ -48,7 +52,11 @@
 
 - (void) pushTenKey: (PZKeyCode) code
 {
-	[calcSheetDelegate pushTenKey: code] ;
+	if([calcSheetDelegate pushTenKey: code]){
+		NSUInteger	index = [calcSheetDelegate activeFieldIndex] ;
+		NSString *	text  = [calcSheetDelegate activeFieldText] ;
+		[calcEngine setSourceText: text atIndex: index] ;
+	}
 }
 
 @end

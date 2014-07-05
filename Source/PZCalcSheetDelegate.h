@@ -13,10 +13,14 @@
 @interface PZCalcSheetDelegate : NSObject <UITableViewDataSource, UITableViewDelegate>
 {
 	NSMutableArray *		calcFields ;
-	NSUInteger			activeFieldIndex ;
 }
 
+@property (assign, nonatomic) NSUInteger	activeFieldIndex ;
+
 - init ;
-- (void) pushTenKey: (PZKeyCode) code ;
+- (BOOL) pushTenKey: (PZKeyCode) code ;
+- (void) linkWithResultTable: (NSMutableDictionary *) table ;
+
+- (NSString *) activeFieldText ;
 
 @end
