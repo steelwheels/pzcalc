@@ -6,6 +6,7 @@
  */
 
 #import <UIKit/UIKit.h>
+#import <KiwiCode/KiwiCode.h>
 #import "PZForwarders.h"
 #import "PZKeyCode.h"
 
@@ -25,6 +26,6 @@
    */
 - (BOOL) pushTenKey: (PZKeyCode) code ;
 
-- (void) setResultValue: (NSNumber *) value ;
+- (void) setResultValue: (KCValue *) value ;
 
 @end

@@ -220,9 +220,9 @@ clearStringInTextField(UITextField * field)
 	return edited ;
 }
 
-- (void) setResultValue: (NSNumber *) value
+- (void) setResultValue: (KCValue *) value
 {
-	NSString * str = [[NSString alloc] initWithFormat: @"%@", value] ;
+	NSString * str = [value toString] ;
 	self.resultLabel.text = str ;
 }
 

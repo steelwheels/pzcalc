@@ -7,9 +7,10 @@
 
 #import "PZEngine.h"
 #import "PZConstant.h"
+#import <KiwiCode/KiwiCode.h>
 
 @interface PZEngine (Private)
-- (void) setResult: (NSNumber *) value atIndex: (NSInteger) index ;
+- (void) setResult: (KCValue *) value atIndex: (NSInteger) index ;
 @end
 
 @implementation PZEngine
@@ -27,10 +28,11 @@
 
 - (void) setSourceText: (NSString *) text atIndex: (NSUInteger) index
 {
-	[self setResult: @123 atIndex: index] ;
+	KCValue * val = [[KCValue alloc] initWithUnsignedIntegerValue: index] ;
+	[self setResult: val atIndex: index] ;
 }
 
-- (void) setResult: (NSNumber *) value atIndex: (NSInteger) index
+- (void) setResult: (KCValue *) value atIndex: (NSInteger) index
 {
 	NSString * key = [[NSString alloc] initWithFormat: @"%d", (int) index] ;
 	[resultTable setObject: value forKey: key] ;

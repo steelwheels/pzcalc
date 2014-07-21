@@ -98,7 +98,7 @@
 {
 	NSInteger		index = *((NSInteger *) context) ;
 	NSMutableDictionary *	dict = object ;
-	NSNumber *		value = [dict valueForKey: keypath] ;
+	KCValue *		value = [dict valueForKey: keypath] ;
 	PZCalcField *	calcfield = [calcFields objectAtIndexedSubscript: index] ;
 	[calcfield performSelectorOnMainThread: @selector(setResultValue:) withObject: value waitUntilDone: NO] ;
 }

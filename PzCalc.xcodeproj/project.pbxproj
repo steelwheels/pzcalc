@@ -27,6 +27,7 @@
 		055BF59B1944425600D516A7 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 055BF5991944425600D516A7 /* InfoPlist.strings */; };
 		055BF59D1944425700D516A7 /* PzCalcTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 055BF59C1944425700D516A7 /* PzCalcTests.m */; };
 		0586A6D8196700120009660F /* PZEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0586A6D7196700120009660F /* PZEngine.m */; };
+		05F520FC196AF1CF007E5B45 /* libKiwiCode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 05F520FB196AF1CF007E5B45 /* libKiwiCode.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		0586A6D6196700120009660F /* PZEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZEngine.h; path = Source/PZEngine.h; sourceTree = SOURCE_ROOT; };
 		0586A6D7196700120009660F /* PZEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PZEngine.m; path = Source/PZEngine.m; sourceTree = SOURCE_ROOT; };
 		0586A6D9196700A60009660F /* PZConstant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PZConstant.h; path = Source/PZConstant.h; sourceTree = SOURCE_ROOT; };
+		05F520FB196AF1CF007E5B45 /* libKiwiCode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libKiwiCode.a; path = ../../Library/Local/lib/libKiwiCode.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05F520FC196AF1CF007E5B45 /* libKiwiCode.a in Frameworks */,
 				055BF5711944425600D516A7 /* CoreGraphics.framework in Frameworks */,
 				055BF5731944425600D516A7 /* UIKit.framework in Frameworks */,
 				055BF56F1944425600D516A7 /* Foundation.framework in Frameworks */,
@@ -121,6 +124,7 @@
 		055BF56D1944425600D516A7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				05F520FB196AF1CF007E5B45 /* libKiwiCode.a */,
 				055BF56E1944425600D516A7 /* Foundation.framework */,
 				055BF5701944425600D516A7 /* CoreGraphics.framework */,
 				055BF5721944425600D516A7 /* UIKit.framework */,
@@ -371,7 +375,7 @@
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -385,6 +389,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
 				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -410,6 +415,7 @@
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 2;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
@@ -417,6 +423,7 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				OTHER_LDFLAGS = "-ObjC";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -428,9 +435,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(PROJECT).install/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PzCalc/PzCalc-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(USER_LIBRARY_DIR)/Local/include",
+				);
 				INFOPLIST_FILE = "PzCalc/PzCalc-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(USER_LIBRARY_DIR)/Local/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -441,9 +458,20 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CONFIGURATION_BUILD_DIR = "$(BUILD_DIR)/$(PROJECT).install/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PzCalc/PzCalc-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
+					"$(USER_LIBRARY_DIR)/Local/include",
+				);
 				INFOPLIST_FILE = "PzCalc/PzCalc-Info.plist";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(BUILT_PRODUCTS_DIR)",
+					"$(USER_LIBRARY_DIR)/Local/lib",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
