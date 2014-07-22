@@ -28,8 +28,22 @@
 
 - (void) setSourceText: (NSString *) text atIndex: (NSUInteger) index
 {
-	KCValue * val = [[KCValue alloc] initWithUnsignedIntegerValue: index] ;
-	[self setResult: val atIndex: index] ;
+	KCExpression *		psrexp ;
+	NSArray *		errors ;
+	psrexp = KCParseExpression(text, &errors) ;
+	
+	KCValue * resval = nil ;
+	if(psrexp){
+		KCError *	error ;
+		KCExpression *	propexp ;
+		propexp = [KCTypePropagator propagateTypeInExpression: psrexp error: &error] ;
+		if(propexp){
+			resval = [propexp execute: &error] ;
+		}
+	}
+	if(resval){
+		[self setResult: resval atIndex: index] ;
+	} 
 }
 
 - (void) setResult: (KCValue *) value atIndex: (NSInteger) index
