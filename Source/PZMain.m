@@ -8,10 +8,12 @@
 #import <UIKit/UIKit.h>
 
 #import "PZAppDelegate.h"
+#import <KiwiCode/KiwiCode.h>
 
 int main(int argc, char * argv[])
 {
 	@autoreleasepool {
-	    return UIApplicationMain(argc, argv, nil, NSStringFromClass([PZAppDelegate class]));
+		KCSetupFramework() ;
+		return UIApplicationMain(argc, argv, nil, NSStringFromClass([PZAppDelegate class]));
 	}
 }
