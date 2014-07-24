@@ -41,9 +41,10 @@
 			resval = [propexp execute: &error] ;
 		}
 	}
-	if(resval){
-		[self setResult: resval atIndex: index] ;
-	} 
+	if(resval == nil){
+		resval = [[KCValue alloc] initWithStringValue: @""] ;
+	}
+	[self setResult: resval atIndex: index] ;
 }
 
 - (void) setResult: (KCValue *) value atIndex: (NSInteger) index
