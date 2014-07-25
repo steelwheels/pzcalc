@@ -42,7 +42,7 @@
 {
 	PZCalcField * cell;
 	cell = [tableView dequeueReusableCellWithIdentifier: @"field" forIndexPath: indexPath];
-	[cell setup] ;
+	[cell setup: self] ;
 	
 	/* Add cell to the array */
 	NSUInteger index = [indexPath indexAtPosition: 1] ; /* index in the section 0 */
@@ -58,6 +58,28 @@
 	}
 	
 	return cell ;	
+}
+
+- (void) tableView: (UITableView *) tableView didSelectRowAtIndexPath: (NSIndexPath *) nextpath
+{
+	NSUInteger nextindex = [nextpath indexAtPosition: 1] ; /* index in the section 0 */
+	PZCalcField * nextfield = [calcFields objectAtIndexedSubscript: nextindex] ;
+	[nextfield activate] ;
+	
+	self.activeFieldIndex = nextindex ;
+}
+
+- (BOOL) textFieldShouldBeginEditing: (UITextField *) textField
+{
+	NSUInteger i ;
+	for(i=0 ; i<PZNumberOfCalcFields ; i++){
+		PZCalcField * calcfield = [calcFields objectAtIndex: i] ;
+		if(calcfield.expressionField == textField){
+			self.activeFieldIndex = i ;
+			return true ;
+		}
+	};
+	return false ;
 }
 
 - (BOOL) pushTenKey: (PZKeyCode) code

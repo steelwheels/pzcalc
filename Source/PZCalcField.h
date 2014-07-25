@@ -15,7 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel * resultLabel ;
 @property (weak, nonatomic) IBOutlet UITextField * expressionField ;
 
-- (void) setup ;
+- (void) setup: (PZCalcSheetDelegate *) parent ;
 - (void) activate ;
 
   /**

@@ -6,6 +6,7 @@
  */
 
 #import "PZCalcField.h"
+#import "PZCalcSheetDelegate.h"
 
 /*
  * @par reference
@@ -82,7 +83,7 @@ clearStringInTextField(UITextField * field)
 
 @implementation PZCalcField
 
-- (void) setup
+- (void) setup: (PZCalcSheetDelegate *) parent
 {
 	self.resultLabel.text = @"" ;
 	self.expressionField.text = @"" ;
@@ -92,6 +93,11 @@ clearStringInTextField(UITextField * field)
 	 */
 	UIView * dummyView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, 1)];
 	self.expressionField.inputView = dummyView; // Hide keyboard, but show blinking cursor
+	
+	/*
+	 * Set delegate for text editing
+	 */
+	[self.expressionField setDelegate: parent] ;
 }
 
 - (void) activate

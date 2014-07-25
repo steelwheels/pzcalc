@@ -10,8 +10,9 @@
 #import "PZKeyCode.h"
 #import "PZConstant.h"
 
-@interface PZCalcSheetDelegate : NSObject <UITableViewDataSource, UITableViewDelegate>
+@interface PZCalcSheetDelegate : NSObject <UITableViewDataSource, UITableViewDelegate, UITextFieldDelegate>
 {
+	/* The element is PZCalcField object */
 	NSMutableArray *		calcFields ;
 }
 
