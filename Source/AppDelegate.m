@@ -1,10 +1,9 @@
-//
-//  AppDelegate.m
-//  PzCalc
-//
-//  Created by Tomoo Hamada on 2014/09/22.
-//  Copyright (c) 2014年 Steel Wheels Project. All rights reserved.
-//
+/**
+ * @file	AppDelegate.m
+ * @brief	Define AppDelegate class
+ * @par Copyright
+ *   Copyright (C) 2014 Steel Wheels Project
+ */
 
 #import "AppDelegate.h"
 

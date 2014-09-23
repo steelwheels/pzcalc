@@ -320,6 +320,7 @@
 				OTHER_LDFLAGS = (
 					"-lPzTenKeyView",
 					"-lPzSheetView",
+					"-lKCTouchableLabel",
 					"-lKiwiControl",
 					"-all_load",
 				);
@@ -343,6 +344,7 @@
 				OTHER_LDFLAGS = (
 					"-lPzTenKeyView",
 					"-lPzSheetView",
+					"-lKCTouchableLabel",
 					"-lKiwiControl",
 					"-all_load",
 				);

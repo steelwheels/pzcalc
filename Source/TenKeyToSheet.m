@@ -27,6 +27,7 @@
 			[sheetView selectNextExpressionField] ;
 		} break ;
 		case PzTenKeyCode_Del: {
+			[sheetView deleteSelectedStringInExpressionField] ;
 		} break ;
 		case PzTenKeyCode_MoveLeft: {
 			[sheetView moveCursorBackwardInExpressionField] ;
