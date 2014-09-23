@@ -8,10 +8,14 @@
 #import <UIKit/UIKit.h>
 #import <PzTenKeyView/PzTenKeyView.h>
 #import <PzSheetView/PzSheetView.h>
+#import "TenKeyToSheet.h"
 
 @interface MainController : UIViewController
-
-@property (weak, nonatomic) IBOutlet PzTenKeyView *tenKeyView;
+{
+	TenKeyToSheet *				tenKeyToSheet ;
+	__weak IBOutlet PzTenKeyView *		tenKeyView;
+	__weak IBOutlet PzSheetView *		sheetView;
+}
 
 @end
 

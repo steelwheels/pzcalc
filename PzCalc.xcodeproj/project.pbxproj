@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		054F1E9719D081E30052A0DD /* PzSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054F1E9519D081E30052A0DD /* PzSheetCell.xib */; };
 		054F1E9819D081E30052A0DD /* PzSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054F1E9619D081E30052A0DD /* PzSheetView.xib */; };
+		0561B59619D149DC005B0E1D /* TenKeyToSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561B59519D149DC005B0E1D /* TenKeyToSheet.m */; };
 		05AE23CB19D0170300EB296E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AE23CA19D0170300EB296E /* main.m */; };
 		05AE23CE19D0170300EB296E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AE23CD19D0170300EB296E /* AppDelegate.m */; };
 		05AE23D119D0170300EB296E /* MainController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AE23D019D0170300EB296E /* MainController.m */; };
@@ -23,6 +24,8 @@
 /* Begin PBXFileReference section */
 		054F1E9519D081E30052A0DD /* PzSheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PzSheetCell.xib; path = ../../../local/resource/PzSheetCell.xib; sourceTree = "<group>"; };
 		054F1E9619D081E30052A0DD /* PzSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PzSheetView.xib; path = ../../../local/resource/PzSheetView.xib; sourceTree = "<group>"; };
+		0561B59419D149DC005B0E1D /* TenKeyToSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TenKeyToSheet.h; path = Source/TenKeyToSheet.h; sourceTree = SOURCE_ROOT; };
+		0561B59519D149DC005B0E1D /* TenKeyToSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TenKeyToSheet.m; path = Source/TenKeyToSheet.m; sourceTree = SOURCE_ROOT; };
 		05AE23C519D0170300EB296E /* PzCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PzCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		05AE23C919D0170300EB296E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		05AE23CA19D0170300EB296E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = ../../../../../../Project/PzCalc/Source/main.m; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +77,8 @@
 				05AE23CD19D0170300EB296E /* AppDelegate.m */,
 				05AE23CF19D0170300EB296E /* MainController.h */,
 				05AE23D019D0170300EB296E /* MainController.m */,
+				0561B59419D149DC005B0E1D /* TenKeyToSheet.h */,
+				0561B59519D149DC005B0E1D /* TenKeyToSheet.m */,
 				05FE61CA19D036FB0075BD52 /* PreferenceController.h */,
 				05FE61CB19D036FB0075BD52 /* PreferenceController.m */,
 				05AE23D219D0170300EB296E /* Main.storyboard */,
@@ -182,6 +187,7 @@
 				05AE23D119D0170300EB296E /* MainController.m in Sources */,
 				05AE23CE19D0170300EB296E /* AppDelegate.m in Sources */,
 				05AE23CB19D0170300EB296E /* main.m in Sources */,
+				0561B59619D149DC005B0E1D /* TenKeyToSheet.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

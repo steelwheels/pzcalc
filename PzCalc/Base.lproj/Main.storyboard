@@ -17,10 +17,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KV8-8x-4fp" customClass="PzSheetView">
-                                <rect key="frame" x="0.0" y="20" width="600" height="332"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZC8-tu-K89" customClass="PzTenKeyView">
                                 <rect key="frame" x="280" y="360" width="320" height="240"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -29,27 +25,24 @@
                                     <constraint firstAttribute="height" constant="240" id="mFx-pv-1Zi"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KV8-8x-4fp" customClass="PzSheetView">
+                                <rect key="frame" x="0.0" y="20" width="600" height="332"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="KV8-8x-4fp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="7AI-HW-df2"/>
-                            <constraint firstItem="ZC8-tu-K89" firstAttribute="top" secondItem="KV8-8x-4fp" secondAttribute="bottom" constant="8" id="8VV-LR-Jq2"/>
-                            <constraint firstItem="KV8-8x-4fp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="ILs-nI-iGQ"/>
+                            <constraint firstItem="KV8-8x-4fp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Doc-3q-LZd"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZC8-tu-K89" secondAttribute="bottom" id="Ifi-ir-4xa"/>
-                            <constraint firstItem="ZC8-tu-K89" firstAttribute="top" secondItem="KV8-8x-4fp" secondAttribute="bottom" id="MSW-61-AOP"/>
+                            <constraint firstAttribute="trailing" secondItem="KV8-8x-4fp" secondAttribute="trailing" id="J0L-Xn-kd5"/>
                             <constraint firstAttribute="trailingMargin" secondItem="ZC8-tu-K89" secondAttribute="trailing" constant="-16" id="RyN-tI-RPD"/>
-                            <constraint firstItem="ZC8-tu-K89" firstAttribute="top" secondItem="KV8-8x-4fp" secondAttribute="bottom" constant="8" id="ZmL-xM-sb2"/>
-                            <constraint firstAttribute="trailing" secondItem="KV8-8x-4fp" secondAttribute="trailing" id="atV-rM-UvT"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KV8-8x-4fp" secondAttribute="trailing" constant="-16" id="jUE-Bp-4EI"/>
-                            <constraint firstItem="KV8-8x-4fp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="m1U-I4-ZGq"/>
-                            <constraint firstItem="KV8-8x-4fp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="mCo-J2-ths"/>
-                            <constraint firstItem="KV8-8x-4fp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="msd-1U-oSg"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KV8-8x-4fp" secondAttribute="trailing" constant="-16" id="r7W-cL-BPt"/>
-                            <constraint firstItem="KV8-8x-4fp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ydC-Uu-emb"/>
+                            <constraint firstItem="KV8-8x-4fp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="fpt-UK-cCJ"/>
+                            <constraint firstItem="ZC8-tu-K89" firstAttribute="top" secondItem="KV8-8x-4fp" secondAttribute="bottom" constant="8" id="zPa-gd-mOs"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="tenKeyView" destination="ZC8-tu-K89" id="fCz-Ei-SID"/>
+                        <outlet property="sheetView" destination="KV8-8x-4fp" id="vPW-w4-Bfd"/>
+                        <outlet property="tenKeyView" destination="ZC8-tu-K89" id="KbP-vj-D0A"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
