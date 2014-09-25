@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0533550319D1B3A500FE1B9D /* CalcEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0533550219D1B3A500FE1B9D /* CalcEngine.m */; };
 		054F1E9719D081E30052A0DD /* PzSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054F1E9519D081E30052A0DD /* PzSheetCell.xib */; };
 		054F1E9819D081E30052A0DD /* PzSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054F1E9619D081E30052A0DD /* PzSheetView.xib */; };
+		055D664719D1C37700597360 /* SheetToEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 055D664619D1C37700597360 /* SheetToEngine.m */; };
 		0561B59619D149DC005B0E1D /* TenKeyToSheet.m in Sources */ = {isa = PBXBuildFile; fileRef = 0561B59519D149DC005B0E1D /* TenKeyToSheet.m */; };
 		05AE23CB19D0170300EB296E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AE23CA19D0170300EB296E /* main.m */; };
 		05AE23CE19D0170300EB296E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 05AE23CD19D0170300EB296E /* AppDelegate.m */; };
@@ -22,8 +24,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0533550119D1B3A500FE1B9D /* CalcEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalcEngine.h; path = Source/CalcEngine.h; sourceTree = SOURCE_ROOT; };
+		0533550219D1B3A500FE1B9D /* CalcEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalcEngine.m; path = Source/CalcEngine.m; sourceTree = SOURCE_ROOT; };
+		0533550419D1B71300FE1B9D /* Forwarders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Forwarders.h; path = Source/Forwarders.h; sourceTree = SOURCE_ROOT; };
 		054F1E9519D081E30052A0DD /* PzSheetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PzSheetCell.xib; path = ../../../local/resource/PzSheetCell.xib; sourceTree = "<group>"; };
 		054F1E9619D081E30052A0DD /* PzSheetView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PzSheetView.xib; path = ../../../local/resource/PzSheetView.xib; sourceTree = "<group>"; };
+		055D664519D1C37700597360 /* SheetToEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SheetToEngine.h; path = Source/SheetToEngine.h; sourceTree = SOURCE_ROOT; };
+		055D664619D1C37700597360 /* SheetToEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SheetToEngine.m; path = Source/SheetToEngine.m; sourceTree = SOURCE_ROOT; };
 		0561B59419D149DC005B0E1D /* TenKeyToSheet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TenKeyToSheet.h; path = Source/TenKeyToSheet.h; sourceTree = SOURCE_ROOT; };
 		0561B59519D149DC005B0E1D /* TenKeyToSheet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TenKeyToSheet.m; path = Source/TenKeyToSheet.m; sourceTree = SOURCE_ROOT; };
 		05AE23C519D0170300EB296E /* PzCalc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PzCalc.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -73,12 +80,17 @@
 			isa = PBXGroup;
 			children = (
 				05AE23CA19D0170300EB296E /* main.m */,
+				0533550419D1B71300FE1B9D /* Forwarders.h */,
 				05AE23CC19D0170300EB296E /* AppDelegate.h */,
 				05AE23CD19D0170300EB296E /* AppDelegate.m */,
 				05AE23CF19D0170300EB296E /* MainController.h */,
 				05AE23D019D0170300EB296E /* MainController.m */,
+				0533550119D1B3A500FE1B9D /* CalcEngine.h */,
+				0533550219D1B3A500FE1B9D /* CalcEngine.m */,
 				0561B59419D149DC005B0E1D /* TenKeyToSheet.h */,
 				0561B59519D149DC005B0E1D /* TenKeyToSheet.m */,
+				055D664519D1C37700597360 /* SheetToEngine.h */,
+				055D664619D1C37700597360 /* SheetToEngine.m */,
 				05FE61CA19D036FB0075BD52 /* PreferenceController.h */,
 				05FE61CB19D036FB0075BD52 /* PreferenceController.m */,
 				05AE23D219D0170300EB296E /* Main.storyboard */,
@@ -183,9 +195,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0533550319D1B3A500FE1B9D /* CalcEngine.m in Sources */,
 				05FE61CC19D036FB0075BD52 /* PreferenceController.m in Sources */,
 				05AE23D119D0170300EB296E /* MainController.m in Sources */,
 				05AE23CE19D0170300EB296E /* AppDelegate.m in Sources */,
+				055D664719D1C37700597360 /* SheetToEngine.m in Sources */,
 				05AE23CB19D0170300EB296E /* main.m in Sources */,
 				0561B59619D149DC005B0E1D /* TenKeyToSheet.m in Sources */,
 			);
@@ -322,6 +336,7 @@
 					"-lPzSheetView",
 					"-lKCTouchableLabel",
 					"-lKiwiControl",
+					"-lKiwiCode",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -346,6 +361,7 @@
 					"-lPzSheetView",
 					"-lKCTouchableLabel",
 					"-lKiwiControl",
+					"-lKiwiCode",
 					"-all_load",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

@@ -6,6 +6,9 @@
  */
 
 #import "MainController.h"
+#import "CalcEngine.h"
+#import "TenKeyToSheet.h"
+#import "SheetToEngine.h"
 
 @interface MainController ()
 
@@ -16,7 +19,9 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	calcEngine = [[CalcEngine alloc] initWithItemCount: [PzSheetView maxRowNum]] ;
 	tenKeyToSheet = [[TenKeyToSheet alloc] initWithTenKeyView: tenKeyView withSheetView: sheetView] ;
+	sheetToEngine = [[SheetToEngine alloc] initWithSheetView: sheetView withCalcEngine: calcEngine] ;
 }
 
 - (void)didReceiveMemoryWarning {
