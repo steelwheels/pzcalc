@@ -6,7 +6,7 @@
  */
 
 #import "CalcEngine.h"
-#import <KiwiCode/KiwiCode.h>
+
 
 #define DO_DEBUG	0
 
@@ -79,7 +79,6 @@ static void printExpression(KCExpression * src) ;
 				item.sourceExpression = propexp ;
 				item.resultValue = resval ;
 				KCValueFormat newformat = adjustValueFormat(item.valueFormat, [resval type]) ;
-				item.valueFormat = newformat ;
 				[outputDelegate outputResultString: [resval toString: newformat] atIndex: index] ;
 				result = YES ;
 			}
@@ -91,6 +90,38 @@ static void printExpression(KCExpression * src) ;
 		item.resultValue = nil ;
 		[outputDelegate outputResultString: @"" atIndex: index] ;
 	}
+}
+
+- (void) redrawResultValue: (NSUInteger) index
+{
+	CalcItem * item = [calcItemArray objectAtIndex: index] ;
+	NSString * newstr = [item.resultValue toString: item.valueFormat] ;
+	[outputDelegate outputResultString: newstr atIndex: index] ;
+}
+
+- (KCValue *) resultValueAtIndex: (NSUInteger) index
+{
+	if(index < [calcItemArray count]){
+		CalcItem * item = [calcItemArray objectAtIndex: index] ;
+		return item.resultValue ;
+	} else {
+		return nil ;
+	}
+}
+
+- (BOOL) updateResultValueFormat: (KCValueFormat) format atIndex: (NSUInteger) index
+{
+	BOOL ismodified = NO ;
+	if(index < [calcItemArray count]){
+		CalcItem * item = [calcItemArray objectAtIndex: index] ;
+		if(item.valueFormat != format){
+			item.valueFormat = format ;
+			ismodified = YES ;
+		}
+	} else {
+		NSLog(@"Invalid index") ;
+	}
+	return ismodified ;
 }
 
 @end

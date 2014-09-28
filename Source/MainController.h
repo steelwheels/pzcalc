@@ -13,6 +13,7 @@
 @interface MainController : UIViewController
 {
 	CalcEngine *				calcEngine ;
+	FormatSelector *			formatSelector ;
 	TenKeyToSheet *				tenKeyToSheet ;
 	SheetToEngine *				sheetToEngine ;
 	__weak IBOutlet PzTenKeyView *		tenKeyView;

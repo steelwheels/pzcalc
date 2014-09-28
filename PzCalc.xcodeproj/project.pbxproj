@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		050D257819D82A180079DB27 /* FormatSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 050D257719D82A180079DB27 /* FormatSelector.m */; };
+		050D257F19D83B300079DB27 /* KCButtonTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050D257D19D83B300079DB27 /* KCButtonTableCell.xib */; };
+		050D258019D83B300079DB27 /* KCButtonTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050D257E19D83B300079DB27 /* KCButtonTableView.xib */; };
 		0533550319D1B3A500FE1B9D /* CalcEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0533550219D1B3A500FE1B9D /* CalcEngine.m */; };
 		054F1E9719D081E30052A0DD /* PzSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054F1E9519D081E30052A0DD /* PzSheetCell.xib */; };
 		054F1E9819D081E30052A0DD /* PzSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054F1E9619D081E30052A0DD /* PzSheetView.xib */; };
@@ -24,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		050D257619D82A180079DB27 /* FormatSelector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FormatSelector.h; path = Source/FormatSelector.h; sourceTree = SOURCE_ROOT; };
+		050D257719D82A180079DB27 /* FormatSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormatSelector.m; path = Source/FormatSelector.m; sourceTree = SOURCE_ROOT; };
+		050D257D19D83B300079DB27 /* KCButtonTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KCButtonTableCell.xib; path = ../../../local/resource/KCButtonTableCell.xib; sourceTree = "<group>"; };
+		050D257E19D83B300079DB27 /* KCButtonTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KCButtonTableView.xib; path = ../../../local/resource/KCButtonTableView.xib; sourceTree = "<group>"; };
 		0533550119D1B3A500FE1B9D /* CalcEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalcEngine.h; path = Source/CalcEngine.h; sourceTree = SOURCE_ROOT; };
 		0533550219D1B3A500FE1B9D /* CalcEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalcEngine.m; path = Source/CalcEngine.m; sourceTree = SOURCE_ROOT; };
 		0533550419D1B71300FE1B9D /* Forwarders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Forwarders.h; path = Source/Forwarders.h; sourceTree = SOURCE_ROOT; };
@@ -87,6 +94,8 @@
 				05AE23D019D0170300EB296E /* MainController.m */,
 				0533550119D1B3A500FE1B9D /* CalcEngine.h */,
 				0533550219D1B3A500FE1B9D /* CalcEngine.m */,
+				050D257619D82A180079DB27 /* FormatSelector.h */,
+				050D257719D82A180079DB27 /* FormatSelector.m */,
 				0561B59419D149DC005B0E1D /* TenKeyToSheet.h */,
 				0561B59519D149DC005B0E1D /* TenKeyToSheet.m */,
 				055D664519D1C37700597360 /* SheetToEngine.h */,
@@ -113,6 +122,8 @@
 		05FE61CD19D038420075BD52 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				050D257D19D83B300079DB27 /* KCButtonTableCell.xib */,
+				050D257E19D83B300079DB27 /* KCButtonTableView.xib */,
 				054F1E9519D081E30052A0DD /* PzSheetCell.xib */,
 				054F1E9619D081E30052A0DD /* PzSheetView.xib */,
 				05FE61CE19D0387A0075BD52 /* PzTenKeyCell.xib */,
@@ -178,8 +189,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				050D257F19D83B300079DB27 /* KCButtonTableCell.xib in Resources */,
 				05AE23D419D0170300EB296E /* Main.storyboard in Resources */,
 				05AE23D919D0170300EB296E /* LaunchScreen.xib in Resources */,
+				050D258019D83B300079DB27 /* KCButtonTableView.xib in Resources */,
 				05FE61D119D0387A0075BD52 /* PzTenKeyView.xib in Resources */,
 				054F1E9719D081E30052A0DD /* PzSheetCell.xib in Resources */,
 				05AE23D619D0170300EB296E /* Images.xcassets in Resources */,
@@ -200,6 +213,7 @@
 				05AE23D119D0170300EB296E /* MainController.m in Sources */,
 				05AE23CE19D0170300EB296E /* AppDelegate.m in Sources */,
 				055D664719D1C37700597360 /* SheetToEngine.m in Sources */,
+				050D257819D82A180079DB27 /* FormatSelector.m in Sources */,
 				05AE23CB19D0170300EB296E /* main.m in Sources */,
 				0561B59619D149DC005B0E1D /* TenKeyToSheet.m in Sources */,
 			);
@@ -335,6 +349,7 @@
 					"-lPzTenKeyView",
 					"-lPzSheetView",
 					"-lKCTouchableLabel",
+					"-lKCButtonTable",
 					"-lKiwiControl",
 					"-lKiwiCode",
 					"-all_load",
@@ -360,6 +375,7 @@
 					"-lPzTenKeyView",
 					"-lPzSheetView",
 					"-lKCTouchableLabel",
+					"-lKCButtonTable",
 					"-lKiwiControl",
 					"-lKiwiCode",
 					"-all_load",

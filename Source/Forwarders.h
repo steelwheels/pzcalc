@@ -8,3 +8,4 @@
 @class CalcEngine ;
 @class TenKeyToSheet ;
 @class SheetToEngine ;
+@class FormatSelector ;
