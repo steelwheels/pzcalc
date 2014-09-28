@@ -13,6 +13,7 @@
 
 @interface CalcEngine : NSObject
 {
+	/** The member is CalcItem. It is defined in CalcEngine.m */
 	NSMutableArray *	calcItemArray ;
 }
 

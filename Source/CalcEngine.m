@@ -12,6 +12,7 @@
 
 @interface CalcItem : NSObject
 
+@property (assign, nonatomic) KCValueFormat		valueFormat ;
 @property (strong, nonatomic) KCValue *			resultValue ;
 @property (strong, nonatomic) KCExpression *		sourceExpression ;
 
@@ -27,6 +28,7 @@
 - (instancetype) init
 {
 	if((self = [super init]) != nil){
+		self.valueFormat = KCDefaultValueFormat ;
 		self.resultValue = nil ;
 		self.sourceExpression = nil ;
 	}
@@ -34,6 +36,9 @@
 }
 
 @end
+
+static KCValueFormat
+adjustValueFormat(KCValueFormat currentform, KCType * newtype) ;
 
 #if DO_DEBUG != 0
 static void printExpression(KCExpression * src) ;
@@ -73,7 +78,9 @@ static void printExpression(KCExpression * src) ;
 				CalcItem * item = [calcItemArray objectAtIndex: index] ;
 				item.sourceExpression = propexp ;
 				item.resultValue = resval ;
-				[outputDelegate outputResultString: [resval toString] atIndex: index] ;
+				KCValueFormat newformat = adjustValueFormat(item.valueFormat, [resval type]) ;
+				item.valueFormat = newformat ;
+				[outputDelegate outputResultString: [resval toString: newformat] atIndex: index] ;
 				result = YES ;
 			}
 		}
@@ -87,6 +94,22 @@ static void printExpression(KCExpression * src) ;
 }
 
 @end
+
+static KCValueFormat
+adjustValueFormat(KCValueFormat currentform, KCType * newtype)
+{
+	if(currentform == KCDefaultValueFormat){
+		return KCDefaultValueFormat ;
+	}
+	struct KCSupportValueFormats formats = KCSupportedValueFormatsOfType(newtype) ;
+	unsigned int i, num = formats.numberOfFormats ;
+	for(i=0; i<num ; i++){
+		if(formats.formatArray[i] == currentform){
+			return currentform ;
+		}
+	}
+	return KCDefaultValueFormat ;
+}
 
 #if DO_DEBUG != 0
 static void
