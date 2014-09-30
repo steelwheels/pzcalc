@@ -24,6 +24,11 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)backButtonPressed:(UIBarButtonItem *)sender
+{
+	[self dismissViewControllerAnimated:YES completion:nil] ;
+}
+
 /*
 #pragma mark - Navigation
 

@@ -6,12 +6,15 @@
  */
 
 #import "Forwarders.h"
+#import "PreferenceController.h"
 #import <UIKit/UIKit.h>
 #import <PzTenKeyView/PzTenKeyView.h>
 #import <PzSheetView/PzSheetView.h>
 
 @interface MainController : UIViewController
 {
+	PreferenceController *			preferenceController ;
+	
 	CalcEngine *				calcEngine ;
 	FormatSelector *			formatSelector ;
 	TenKeyToSheet *				tenKeyToSheet ;
@@ -19,6 +22,8 @@
 	__weak IBOutlet PzTenKeyView *		tenKeyView;
 	__weak IBOutlet PzSheetView *		sheetView;
 }
+
+- (IBAction)moveToPreferenceScene:(UIBarButtonItem *)sender;
 
 @end
 

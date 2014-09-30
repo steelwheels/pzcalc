@@ -20,6 +20,8 @@
 - (void)viewDidLoad {
 	[super viewDidLoad];
 	
+	preferenceController = [self.storyboard instantiateViewControllerWithIdentifier:@"PreferenceScene"];
+	
 	calcEngine = [[CalcEngine alloc] initWithItemCount: [PzSheetView maxRowNum]] ;
 	formatSelector = [[FormatSelector alloc] initWithViewController: self withCalcEngine: calcEngine] ;
 	tenKeyToSheet = [[TenKeyToSheet alloc] initWithTenKeyView: tenKeyView withSheetView: sheetView] ;
@@ -31,6 +33,11 @@
 - (void)didReceiveMemoryWarning {
 	[super didReceiveMemoryWarning];
 	// Dispose of any resources that can be recreated.
+}
+
+- (IBAction) moveToPreferenceScene:(UIBarButtonItem *)sender
+{
+	[self presentViewController: preferenceController animated:YES completion:nil];
 }
 
 @end

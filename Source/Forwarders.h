@@ -9,3 +9,5 @@
 @class TenKeyToSheet ;
 @class SheetToEngine ;
 @class FormatSelector ;
+@class MainController ;
+@class PreferenceController ;
