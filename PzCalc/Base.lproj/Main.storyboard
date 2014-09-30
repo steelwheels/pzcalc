@@ -21,23 +21,41 @@
                                 <rect key="frame" x="140" y="360" width="320" height="240"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="320" id="fcV-pP-2ab"/>
-                                    <constraint firstAttribute="height" constant="240" id="uCB-WB-qwU"/>
+                                    <constraint firstAttribute="width" constant="320" id="ZZf-Ge-CqD"/>
+                                    <constraint firstAttribute="height" constant="240" id="hop-fY-l1O"/>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KV8-8x-4fp" customClass="PzSheetView">
-                                <rect key="frame" x="0.0" y="20" width="600" height="332"/>
+                                <rect key="frame" x="0.0" y="64" width="600" height="289"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="a0j-cq-0Ug">
+                                <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="dNM-eu-NOj"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="PzCalc" id="46Z-eL-gCu">
+                                        <barButtonItem key="rightBarButtonItem" title="About" id="HND-nO-vg7">
+                                            <connections>
+                                                <segue destination="bRW-id-fZz" kind="presentation" id="gIT-PX-7Vu"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ZC8-tu-K89" firstAttribute="top" secondItem="KV8-8x-4fp" secondAttribute="bottom" constant="8" id="2Uv-CW-NgM"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="KV8-8x-4fp" secondAttribute="trailing" constant="-16" id="5K1-NV-ECf"/>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZC8-tu-K89" secondAttribute="bottom" id="7o4-It-nGA"/>
-                            <constraint firstAttribute="centerX" secondItem="ZC8-tu-K89" secondAttribute="centerX" id="CEV-vP-bZu"/>
-                            <constraint firstItem="KV8-8x-4fp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="YGa-hC-xna"/>
-                            <constraint firstItem="KV8-8x-4fp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="zmK-tN-qD0"/>
+                            <constraint firstItem="KV8-8x-4fp" firstAttribute="top" secondItem="a0j-cq-0Ug" secondAttribute="bottom" id="0Oh-p4-f1F"/>
+                            <constraint firstAttribute="centerX" secondItem="ZC8-tu-K89" secondAttribute="centerX" id="8IY-Dg-BVK"/>
+                            <constraint firstItem="KV8-8x-4fp" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="LDr-up-K8K"/>
+                            <constraint firstItem="a0j-cq-0Ug" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Lqs-Z7-dCX"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="ZC8-tu-K89" secondAttribute="bottom" id="PH7-nH-nAI"/>
+                            <constraint firstItem="a0j-cq-0Ug" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="Rta-c3-4wm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="KV8-8x-4fp" secondAttribute="trailing" constant="-16" id="eF7-GY-JUP"/>
+                            <constraint firstItem="ZC8-tu-K89" firstAttribute="top" secondItem="KV8-8x-4fp" secondAttribute="bottom" constant="7" id="f6N-yo-BgH"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="a0j-cq-0Ug" secondAttribute="trailing" constant="-16" id="pUX-T8-GXO"/>
                         </constraints>
                     </view>
                     <connections>
