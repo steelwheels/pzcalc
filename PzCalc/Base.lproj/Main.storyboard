@@ -34,9 +34,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="dNM-eu-NOj"/>
                                 </constraints>
+                                <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="PzCalc" id="46Z-eL-gCu">
                                         <barButtonItem key="rightBarButtonItem" title="About" id="HND-nO-vg7">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="moveToPreferenceScene:" destination="BYZ-38-t0r" id="Lin-oU-pz7"/>
                                             </connections>
@@ -84,9 +89,14 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Yul-zT-IR7"/>
                                 </constraints>
+                                <color key="barTintColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </textAttributes>
                                 <items>
                                     <navigationItem title="Preference" id="iPw-FP-tm2">
                                         <barButtonItem key="leftBarButtonItem" title="Back" id="vbS-ly-8bv">
+                                            <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                             <connections>
                                                 <action selector="backButtonPressed:" destination="bRW-id-fZz" id="ZjQ-t6-zwQ"/>
                                             </connections>

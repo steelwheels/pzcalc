@@ -21,6 +21,9 @@
 		05AE23D419D0170300EB296E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 05AE23D219D0170300EB296E /* Main.storyboard */; };
 		05AE23D619D0170300EB296E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 05AE23D519D0170300EB296E /* Images.xcassets */; };
 		05AE23D919D0170300EB296E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05AE23D719D0170300EB296E /* LaunchScreen.xib */; };
+		05D5ED9019DAFEFF000169C5 /* KCPreferenceTable.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D5ED8E19DAFEFF000169C5 /* KCPreferenceTable.xib */; };
+		05D5ED9119DAFEFF000169C5 /* KCPreferenceTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05D5ED8F19DAFEFF000169C5 /* KCPreferenceTableCell.xib */; };
+		05D5ED9319DB01E2000169C5 /* AppDefaults.plist in Resources */ = {isa = PBXBuildFile; fileRef = 05D5ED9219DB01E2000169C5 /* AppDefaults.plist */; };
 		05FE61CC19D036FB0075BD52 /* PreferenceController.m in Sources */ = {isa = PBXBuildFile; fileRef = 05FE61CB19D036FB0075BD52 /* PreferenceController.m */; };
 		05FE61D019D0387A0075BD52 /* PzTenKeyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FE61CE19D0387A0075BD52 /* PzTenKeyCell.xib */; };
 		05FE61D119D0387A0075BD52 /* PzTenKeyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 05FE61CF19D0387A0075BD52 /* PzTenKeyView.xib */; };
@@ -50,6 +53,9 @@
 		05AE23D319D0170300EB296E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		05AE23D519D0170300EB296E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		05AE23D819D0170300EB296E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		05D5ED8E19DAFEFF000169C5 /* KCPreferenceTable.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KCPreferenceTable.xib; path = ../../../local/resource/KCPreferenceTable.xib; sourceTree = "<group>"; };
+		05D5ED8F19DAFEFF000169C5 /* KCPreferenceTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KCPreferenceTableCell.xib; path = ../../../local/resource/KCPreferenceTableCell.xib; sourceTree = "<group>"; };
+		05D5ED9219DB01E2000169C5 /* AppDefaults.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = AppDefaults.plist; sourceTree = "<group>"; };
 		05FE61CA19D036FB0075BD52 /* PreferenceController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PreferenceController.h; path = Source/PreferenceController.h; sourceTree = SOURCE_ROOT; };
 		05FE61CB19D036FB0075BD52 /* PreferenceController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PreferenceController.m; path = Source/PreferenceController.m; sourceTree = SOURCE_ROOT; };
 		05FE61CE19D0387A0075BD52 /* PzTenKeyCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = PzTenKeyCell.xib; path = ../../../local/resource/PzTenKeyCell.xib; sourceTree = "<group>"; };
@@ -114,6 +120,7 @@
 		05AE23C819D0170300EB296E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				05D5ED9219DB01E2000169C5 /* AppDefaults.plist */,
 				05AE23C919D0170300EB296E /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -122,6 +129,8 @@
 		05FE61CD19D038420075BD52 /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				05D5ED8E19DAFEFF000169C5 /* KCPreferenceTable.xib */,
+				05D5ED8F19DAFEFF000169C5 /* KCPreferenceTableCell.xib */,
 				050D257D19D83B300079DB27 /* KCButtonTableCell.xib */,
 				050D257E19D83B300079DB27 /* KCButtonTableView.xib */,
 				054F1E9519D081E30052A0DD /* PzSheetCell.xib */,
@@ -189,6 +198,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				05D5ED9119DAFEFF000169C5 /* KCPreferenceTableCell.xib in Resources */,
 				050D257F19D83B300079DB27 /* KCButtonTableCell.xib in Resources */,
 				05AE23D419D0170300EB296E /* Main.storyboard in Resources */,
 				05AE23D919D0170300EB296E /* LaunchScreen.xib in Resources */,
@@ -196,6 +206,8 @@
 				05FE61D119D0387A0075BD52 /* PzTenKeyView.xib in Resources */,
 				054F1E9719D081E30052A0DD /* PzSheetCell.xib in Resources */,
 				05AE23D619D0170300EB296E /* Images.xcassets in Resources */,
+				05D5ED9319DB01E2000169C5 /* AppDefaults.plist in Resources */,
+				05D5ED9019DAFEFF000169C5 /* KCPreferenceTable.xib in Resources */,
 				054F1E9819D081E30052A0DD /* PzSheetView.xib in Resources */,
 				05FE61D019D0387A0075BD52 /* PzTenKeyCell.xib in Resources */,
 			);
@@ -350,6 +362,7 @@
 					"-lPzSheetView",
 					"-lKCTouchableLabel",
 					"-lKCButtonTable",
+					"-lKCPreferenceTable",
 					"-lKiwiControl",
 					"-lKiwiCode",
 					"-all_load",
@@ -376,6 +389,7 @@
 					"-lPzSheetView",
 					"-lKCTouchableLabel",
 					"-lKCButtonTable",
+					"-lKCPreferenceTable",
 					"-lKiwiControl",
 					"-lKiwiCode",
 					"-all_load",
