@@ -35,6 +35,9 @@
 		case PzTenKeyCode_MoveRight: {
 			[sheetView moveCursorForwardInExpressionField] ;
 		} break ;
+		case PzTenKeyCode_FuncSel: {
+			/* Do nothing */
+		} break ;
 		default: {
 			NSString * str = PzTenKeyTypeToString(code) ;
 			if(str){
