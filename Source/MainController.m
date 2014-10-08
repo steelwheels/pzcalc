@@ -24,7 +24,7 @@
 	
 	calcEngine = [[CalcEngine alloc] initWithItemCount: [PzSheetView maxRowNum]] ;
 	formatSelector = [[FormatSelector alloc] initWithViewController: self withCalcEngine: calcEngine] ;
-	tenKeyToSheet = [[TenKeyToSheet alloc] initWithTenKeyView: tenKeyView withSheetView: sheetView] ;
+	tenKeyToSheet = [[TenKeyToSheet alloc] initWithController: self withTenKeyView: tenKeyView withSheetView: sheetView] ;
 	sheetToEngine = [[SheetToEngine alloc] initWithSheetView: sheetView withCalcEngine: calcEngine] ;
 	
 	[sheetView setTouchableLabelDelegate: formatSelector] ;

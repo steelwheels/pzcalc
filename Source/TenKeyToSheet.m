@@ -6,16 +6,22 @@
  */
 
 #import "TenKeyToSheet.h"
+#import <KiwiCode/KiwiCode.h>
 
 @implementation TenKeyToSheet
 
-- (instancetype) initWithTenKeyView: (PzTenKeyView *) tenkey withSheetView: (PzSheetView *) sheet
+- (instancetype) initWithController: (UIViewController *) controller withTenKeyView: (PzTenKeyView *) tenkey withSheetView: (PzSheetView *) sheet
 {
 	if((self = [super init]) != nil){
+		viewController = controller ;
 		tenKeyView = tenkey ;
 		sheetView = sheet ;
 		/** Connect tenKeyView <- self */
 		tenKeyView.delegate = self ;
+		
+		/** Setup function menu */
+		functionTable = [[KCButtonTable alloc] init] ;
+		functionNameArray = [[KCFunctionTable sharedFunctionTable] allFunctionNames] ;
 	}
 	return self ;
 }
@@ -35,8 +41,14 @@
 		case PzTenKeyCode_MoveRight: {
 			[sheetView moveCursorForwardInExpressionField] ;
 		} break ;
+		case PzTenKeyCode_Clear: {
+			[sheetView clearCurrentField] ;
+		} break ;
+		case PzTenKeyCode_AllClear: {
+			[sheetView clearAllFields] ;
+		} break ;
 		case PzTenKeyCode_FuncSel: {
-			/* Do nothing */
+			[self selectFunction] ;
 		} break ;
 		default: {
 			NSString * str = PzTenKeyTypeToString(code) ;
@@ -47,4 +59,22 @@
 	}
 }
 
+- (void) selectFunction
+{
+	CGRect bounds = [tenKeyView bounds] ;
+	CGPoint abspoint = KCAbsolutePointAtView(tenKeyView, bounds.origin) ;
+	[functionTable displayButtonTableWithLabelNames: functionNameArray
+					   withDelegate: self
+					     withOrigin: abspoint
+				       atViewController: viewController] ;
+}
+
+- (void) buttonPressed: (NSUInteger) index
+{
+	NSString * funcstr = [functionNameArray objectAtIndex: index] ;
+	[sheetView insertStringToExpressionField: funcstr] ;
+}
+
 @end
+
+

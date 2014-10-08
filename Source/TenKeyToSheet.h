@@ -7,13 +7,17 @@
 
 #import <PzTenKeyView/PzTenKeyView.h>
 #import <PzSheetView/PzSheetView.h>
+#import <KCButtonTable/KCButtonTable.h>
 
-@interface TenKeyToSheet : NSObject <PzTenKeyClicking>
+@interface TenKeyToSheet : NSObject <PzTenKeyClicking, KCButtonTableDelegate>
 {
+	UIViewController *		viewController ;
 	PzTenKeyView *			tenKeyView ;
 	PzSheetView *			sheetView ;
+	KCButtonTable *			functionTable ;
+	NSArray *			functionNameArray ;
 }
 
-- (instancetype) initWithTenKeyView: (PzTenKeyView *) tenkey withSheetView: (PzSheetView *) sheet ;
+- (instancetype) initWithController: (UIViewController *) controller withTenKeyView: (PzTenKeyView *) tenkey withSheetView: (PzSheetView *) sheet ;
 
 @end
