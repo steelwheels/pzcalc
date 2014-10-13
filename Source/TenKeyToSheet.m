@@ -29,6 +29,9 @@
 - (void) pressKey: (enum PzTenKeyCode) code
 {
 	switch(code){
+		case PzTenKeyCode_Nop: {
+			/* Do nothing */
+		} break ;
 		case PzTenKeyCode_Ret: {
 			[sheetView selectNextExpressionField] ;
 		} break ;
