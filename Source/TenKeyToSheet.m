@@ -65,7 +65,13 @@
 - (void) selectFunction
 {
 	CGRect bounds = [tenKeyView bounds] ;
-	CGPoint abspoint = KCAbsolutePointAtView(tenKeyView, bounds.origin) ;
+	CGSize tablesize = [functionTable frameSize] ;
+	
+	CGFloat hpos = (bounds.size.width  - tablesize.width ) / 2.0 ;
+	if(hpos < 0.0){ hpos = 0.0 ; }
+	
+	CGPoint offpoint = CGPointMake(bounds.origin.x + hpos, bounds.origin.y) ;
+	CGPoint abspoint = KCAbsolutePointAtView(tenKeyView, offpoint) ;
 	[functionTable displayButtonTableWithLabelNames: functionNameArray
 					   withDelegate: self
 					     withOrigin: abspoint
