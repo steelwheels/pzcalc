@@ -15,7 +15,7 @@
 	PzTenKeyView *			tenKeyView ;
 	PzSheetView *			sheetView ;
 	KCButtonTable *			functionTable ;
-	NSArray *			functionNameArray ;
+	NSArray *			functionSampleDeclarationArray ;
 }
 
 - (instancetype) initWithController: (UIViewController *) controller withTenKeyView: (PzTenKeyView *) tenkey withSheetView: (PzSheetView *) sheet ;

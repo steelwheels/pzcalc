@@ -21,7 +21,7 @@
 		
 		/** Setup function menu */
 		functionTable = [[KCButtonTable alloc] init] ;
-		functionNameArray = [[KCFunctionTable sharedFunctionTable] allFunctionNames] ;
+		functionSampleDeclarationArray = [[KCFunctionTable sharedFunctionTable] allSampleDeclarations] ;
 	}
 	return self ;
 }
@@ -72,7 +72,7 @@
 	
 	CGPoint offpoint = CGPointMake(bounds.origin.x + hpos, bounds.origin.y) ;
 	CGPoint abspoint = KCAbsolutePointAtView(tenKeyView, offpoint) ;
-	[functionTable displayButtonTableWithLabelNames: functionNameArray
+	[functionTable displayButtonTableWithLabelNames: functionSampleDeclarationArray
 					   withDelegate: self
 					     withOrigin: abspoint
 				       atViewController: viewController] ;
@@ -80,7 +80,7 @@
 
 - (void) buttonPressed: (NSUInteger) index
 {
-	NSString * funcstr = [functionNameArray objectAtIndex: index] ;
+	NSString * funcstr = [functionSampleDeclarationArray objectAtIndex: index] ;
 	[sheetView insertStringToExpressionField: funcstr] ;
 }
 
