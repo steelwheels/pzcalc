@@ -37,6 +37,7 @@
 
 - (IBAction) moveToPreferenceScene:(UIBarButtonItem *)sender
 {
+	((void) sender) ;
 	[self presentViewController: preferenceController animated:YES completion:nil];
 }
 

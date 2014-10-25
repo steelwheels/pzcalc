@@ -21,6 +21,6 @@
 	NSUInteger			currentIndex ;
 }
 
-- initWithViewController: (UIViewController *) controller withCalcEngine: (CalcEngine *) engine ;
+- (instancetype) initWithViewController: (UIViewController *) controller withCalcEngine: (CalcEngine *) engine ;
 
 @end

@@ -24,8 +24,9 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)backButtonPressed:(UIBarButtonItem *)sender
+- (IBAction) backButtonPressed:(UIBarButtonItem *)sender
 {
+	((void) sender) ;
 	[self dismissViewControllerAnimated:YES completion:nil] ;
 }
 

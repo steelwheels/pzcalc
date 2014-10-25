@@ -10,7 +10,7 @@
 
 @implementation FormatSelector
 
-- initWithViewController: (UIViewController *) controller withCalcEngine: (CalcEngine *) engine
+- (instancetype) initWithViewController: (UIViewController *) controller withCalcEngine: (CalcEngine *) engine
 {
 	if((self = [super init]) != nil){
 		viewController = controller ;
