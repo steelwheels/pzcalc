@@ -6,9 +6,9 @@
 	<string>Steel Wheels Project</string>
 	<key>DeveloperURL</key>
 	<string>https://sites.google.com/site/steelwheelsproject/</string>
-	<key>CopyrightName</key>
+	<key>LicenseName</key>
 	<string>GNU Public Lisence 2.0</string>
-	<key>CopyrightURL</key>
+	<key>LicenseURL</key>
 	<string>http://www.gnu.org/licenses/gpl-2.0.html</string>
 	<key>SourceCodeURL</key>
 	<string>https://github.com/steelwheels/pzcalc</string>
