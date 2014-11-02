@@ -27,6 +27,11 @@
 	[calcEngine putExpressionString: text atIndex: index] ;
 }
 
+- (void) clearTextAtIndex: (NSUInteger) index
+{
+	[calcEngine clearExpressionStringAtIndex: index] ;
+}
+
 - (void) outputResultString: (NSString *) str atIndex: (NSUInteger) index
 {
 	[sheetView setLabelText: str forSlot: index] ;

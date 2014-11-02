@@ -22,6 +22,7 @@
 
 - (instancetype) initWithItemCount: (NSUInteger) count ;
 - (void) putExpressionString: (NSString *) str atIndex: (NSUInteger) index ;
+- (void) clearExpressionStringAtIndex: (NSUInteger) index ;
 - (void) redrawResultValue: (NSUInteger) index ;
 
   /**

@@ -92,6 +92,15 @@ static void printExpression(KCExpression * src) ;
 	}
 }
 
+- (void) clearExpressionStringAtIndex: (NSUInteger) index
+{
+	CalcItem * item = [calcItemArray objectAtIndex: index] ;
+	item.sourceExpression = nil ;
+	item.resultValue = nil ;
+	item.valueFormat = KCDefaultValueFormat ; /* Reset the value format */
+	[outputDelegate outputResultString: @"" atIndex: index] ;
+}
+
 - (void) redrawResultValue: (NSUInteger) index
 {
 	CalcItem * item = [calcItemArray objectAtIndex: index] ;
