@@ -1,0 +1,142 @@
+/**
+ * @file	KCExpressionLex.lm
+ * @brief	Lex code for lexical analyzer
+ * @par Copyright
+ *   Copyright (C) 2014 Steel Wheels Project
+ */
+
+%option	prefix="kc_exp_"
+%option reentrant
+%option bison-bridge
+%option noyywrap
+%option	noinput
+%option	nounput
+
+%{
+
+#import <KiwiCode/KiwiCode.h>
+#import "ExpressionLex.h"
+#import "ExpressionParser.h"
+#import "ExpressionSyntax.tab.h"
+
+static void
+KCExpressionLexInput(kc_scanner_t scanner, char * buffer, size_t * ressize, unsigned long maxsize) ;
+
+#define	YY_INPUT(buffer, res, maxsize) \
+	KCExpressionLexInput(yyscanner, buffer, &(res), maxsize)
+
+
+
+
+
+/** Declaration of kc_exp_lex (yylex) function */
+#define YY_DECL	int kc_exp_lex(YYSTYPE * yylval_param, kc_scanner_t yyscanner, kc_parser_t parser)
+
+%}
+
+ALPHABET	[A-Za-z]
+DIGIT		[0-9]
+HEX		[0-9a-fA-F]
+SPACE		[ \t\n]+
+
+%%
+
+[1-9]{DIGIT}*\.{DIGIT}+ {
+	char *		endp ;
+	double		val = strtod(yytext, &endp) ;
+	*yylval = KCMakeFloatToken(val) ;
+	return L_FLOAT ;
+}
+
+0\.{DIGIT}+ {
+	char *		endp ;
+	double		val = strtod(yytext, &endp) ;
+	*yylval = KCMakeFloatToken(val) ;
+	return L_FLOAT ;
+}
+
+[1-9]{DIGIT}* {
+	char *		endp ;
+	unsigned long	val = strtoul(yytext, &endp, 0) ;
+	*yylval = KCMakeIntToken(val) ;
+	return L_INTEGER ;
+}
+
+0[xX]{HEX}+ {
+	char *		endp ;
+	unsigned long	val = strtoul(yytext, &endp, 16) ;
+	*yylval = KCMakeIntToken(val) ;
+	return L_INTEGER ;
+}
+
+[0]+ {
+	*yylval = KCMakeIntToken(0) ;
+	return L_INTEGER ;
+}
+
+\|\| {
+	*yylval = KCMakeSymbolToken('|') ;
+	return S_LOGICAL_OR ;
+}
+
+&& {
+	*yylval = KCMakeSymbolToken('&') ;
+	return S_LOGICAL_AND ;
+}
+
+== {
+	*yylval = KCMakeSymbolToken('=') ;
+	return S_EQUAL ;
+}
+
+!= {
+	*yylval = KCMakeSymbolToken('!') ;
+	return S_NOT_EQUAL ;
+}
+
+\<= {
+	*yylval = KCMakeSymbolToken('<') ;
+	return S_LESS_EQUAL ;
+}
+
+>= {
+	*yylval = KCMakeSymbolToken('>') ;
+	return S_GREAT_EQUAL ;
+}
+
+\<\< {
+	*yylval = KCMakeSymbolToken('<') ;
+	return S_LEFT_SHIFT ;
+}
+
+\>\> {
+	*yylval = KCMakeSymbolToken('>') ;
+	return S_RIGHT_SHIFT ;
+}
+
+{ALPHABET}+ {
+	*yylval = KCMakeIdentifierToken(yytext) ;
+	return L_IDENTIFIER ;
+}
+
+{SPACE} {
+	/* ignore spaces */
+}
+
+. {
+	*yylval = KCMakeSymbolToken(yytext[0]) ;
+	return yytext[0] ;
+}
+
+%%
+
+
+static void
+KCExpressionLexInput(kc_scanner_t scanner, char * buffer, size_t * ressize, unsigned long maxsize)
+{
+	//puts("KCExpressionLexInput") ;
+	KCExpressionParser * psrobj = (__bridge KCExpressionParser *) kc_exp_get_extra(scanner) ;
+	size_t readsize = [psrobj input: buffer withMaxSize: maxsize] ;
+	//printf(" readsize, maxsize : %u, %lu\n", (unsigned int) readsize, maxsize) ;
+	*ressize = readsize > 0 ? readsize : YY_NULL ;
+}

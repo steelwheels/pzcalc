@@ -1,0 +1,481 @@
+%{
+	
+/**
+ * @file	KCExpressionSyntax.ym
+ * @brief	Lex code for lexical analyzer
+ * @par Copyright
+ *   Copyright (C) 2014 Steel Wheels Project
+ */
+
+#import <KiwiCode/KiwiCode.h>
+#import "ExpressionSyntax.h"
+#import "ExpressionParser.h"
+
+static int kc_exp_parse (kc_parser_t parser, kc_scanner_t yyscanner) ;
+
+static void kc_exp_error(kc_parser_t parser, void * yyscanner, const char * message) ;
+
+static inline KCExpression *
+token2exp(KCToken * src)
+{
+	assert(src->type == KCPointerToken) ;
+	return (__bridge_transfer KCExpression *) src->pointerValue ;
+}
+
+static inline KCToken
+exp2token(KCExpression * src)
+{
+	void * ptr = (__bridge_retained void *) src ;
+	return KCMakePointerToken(ptr) ;
+}
+
+static inline NSMutableArray *
+token2array(KCToken * src)
+{
+	assert(src->type == KCPointerToken) ;
+	return (__bridge_transfer NSMutableArray *) src->pointerValue ;
+}
+
+static inline KCToken
+array2token(NSMutableArray * src)
+{
+	void * ptr = (__bridge_retained void *) src ;
+	return KCMakePointerToken(ptr) ;
+}
+
+static inline KCToken
+allocateIntegerExpression(KCToken * src)
+{
+	KCValue * val = [[KCValue alloc] initWithSignedIntegerValue: src->integerValue] ;
+	KCValueExpression * valexp = [[KCValueExpression alloc] initWithValue: val] ;
+	return exp2token(valexp) ;
+}
+
+static inline KCToken
+allocateFloatExpression(KCToken * src)
+{
+	KCValue * val = [[KCValue alloc] initWithFloatValue: src->floatValue] ;
+	KCValueExpression * dstexp = [[KCValueExpression alloc] initWithValue: val] ;
+	return exp2token(dstexp) ;
+}
+
+static inline KCToken
+allocateArithmeticUnaryExpression(KCArithmeticUnaryOperator op, KCToken * src)
+{
+	KCExpression * srcexp = token2exp(src) ;
+	KCArithmeticUnaryExpression * dstexp = [[KCArithmeticUnaryExpression alloc] initWithOperator: op withSourceExpression: srcexp] ;
+	return exp2token(dstexp) ;
+}
+
+static inline KCToken
+allocateBitwiseUnaryExpression(KCBitwiseUnaryOperator op, KCToken * src)
+{
+	KCExpression * srcexp = token2exp(src) ;
+	KCBitwiseUnaryExpression * dstexp = [[KCBitwiseUnaryExpression alloc] initWithOperator: op withSourceExpression: srcexp] ;
+	return exp2token(dstexp) ;
+}
+
+static inline KCToken
+allocateLogicalUnaryExpression(KCLogicalUnaryOperator op, KCToken * src)
+{
+	KCExpression * srcexp = token2exp(src) ;
+	KCLogicalUnaryExpression * dstexp = [[KCLogicalUnaryExpression alloc] initWithOperator: op withSourceExpression: srcexp] ;
+	return exp2token(dstexp) ;
+}
+
+static inline KCToken
+allocateArithmeticBinaryExpression(KCArithmeticBinaryOperator op, KCToken * lsrc, KCToken * rsrc)
+{
+	KCExpression * lsrcexp = token2exp(lsrc) ;
+	KCExpression * rsrcexp = token2exp(rsrc) ;
+	KCArithmeticBinaryExpression * dstexp ;
+	dstexp = [[KCArithmeticBinaryExpression alloc] initWithOperator: op
+						     withLeftExpression: lsrcexp
+						    withRightExpression: rsrcexp] ;
+	return exp2token(dstexp) ;
+}
+
+static inline KCToken
+allocateBitwiseBinaryExpression(KCBitwiseBinaryOperator op, KCToken * lsrc, KCToken * rsrc)
+{
+	KCExpression * lsrcexp = token2exp(lsrc) ;
+	KCExpression * rsrcexp = token2exp(rsrc) ;
+	KCBitwiseBinaryExpression * dstexp ;
+	dstexp = [[KCBitwiseBinaryExpression alloc] initWithOperator: op
+							withLeftExpression: lsrcexp
+							withRightExpression: rsrcexp] ;
+	return exp2token(dstexp) ;
+}
+
+static inline KCToken
+allocateLogicalBinaryExpression(KCLogicalBinaryOperator op, KCToken * lsrc, KCToken * rsrc)
+{
+	KCExpression * lsrcexp = token2exp(lsrc) ;
+	KCExpression * rsrcexp = token2exp(rsrc) ;
+	KCLogicalBinaryExpression * dstexp ;
+	dstexp = [[KCLogicalBinaryExpression alloc] initWithOperator: op
+						 withLeftExpression: lsrcexp
+						withRightExpression: rsrcexp] ;
+	return exp2token(dstexp) ;
+}
+
+static inline KCToken
+allocateCompareExpression(KCCompareOperator op, KCToken * lsrc, KCToken * rsrc)
+{
+	KCExpression * lsrcexp = token2exp(lsrc) ;
+	KCExpression * rsrcexp = token2exp(rsrc) ;
+	KCCompareExpression * dstexp = [[KCCompareExpression alloc] initWithOperator: op
+	withLeftExpression: lsrcexp
+	withRightExpression: rsrcexp] ;
+	return exp2token(dstexp) ;
+}
+
+static inline KCToken
+allocateConditionalExpression(KCToken * csrc, KCToken * tsrc, KCToken * esrc)
+{
+	KCExpression * csrcexp = token2exp(csrc) ;
+	KCExpression * tsrcexp = token2exp(tsrc) ;
+	KCExpression * esrcexp = token2exp(esrc) ;
+	KCConditionalExpression * dstexp = [[KCConditionalExpression alloc] initWithConditionExpression: csrcexp
+	   withThenExpression: tsrcexp withElseExpression: esrcexp] ;
+	return exp2token(dstexp) ;
+}
+
+%}
+
+%defines
+%error-verbose
+%name-prefix		= "kc_exp_"
+%pure-parser
+%parse-param		{ kc_parser_t yyparser }
+%parse-param		{ kc_scanner_t yyscanner }
+%lex-param		{ kc_scanner_t yyscanner }
+
+%start	translation_unit
+
+%token	L_INTEGER L_FLOAT L_IDENTIFIER
+%token	S_LOGICAL_OR S_LOGICAL_AND S_EQUAL S_NOT_EQUAL
+%token	S_LESS_EQUAL S_GREAT_EQUAL S_LEFT_SHIFT S_RIGHT_SHIFT
+
+%%
+
+translation_unit
+	: expression
+	  {
+		  KCExpressionParser * parser = (__bridge KCExpressionParser *) yyparser ;
+		  KCExpression * exp = token2exp(&$1) ;
+		  parser.resultExpression = exp ;
+	  }
+	;
+
+expression
+	: conditional_expression { $$ = $1 ; }
+	;
+
+conditional_expression
+	: logical_or_expression { $$ = $1 ; }
+	| logical_or_expression '?' expression ':' conditional_expression
+	  {
+		  $$ = allocateConditionalExpression(&$1, &$3, &$5) ;
+	  }
+	;
+
+logical_or_expression
+	: logical_and_expression { $$ = $1 ; }
+	| logical_or_expression S_LOGICAL_OR logical_and_expression
+	  {
+		  $$ = allocateLogicalBinaryExpression(KCLogicalOrOperator, &$1, &$3) ;
+	  }
+	;
+
+logical_and_expression
+	: inclusive_or_expression  { $$ = $1 ; }
+	| logical_and_expression S_LOGICAL_AND inclusive_or_expression
+	  {
+		  $$ = allocateLogicalBinaryExpression(KCLogicalAndOperator, &$1, &$3) ;
+	  }
+	;
+
+inclusive_or_expression
+	: exclusive_or_expression { $$ = $1 ; }
+	| inclusive_or_expression '|' exclusive_or_expression
+	  {
+		  $$ = allocateBitwiseBinaryExpression(KCBitOrOperator, &$1, &$3) ;
+	  }
+	;
+
+exclusive_or_expression
+	: and_expression { $$ = $1 ; }
+	| exclusive_or_expression '^' and_expression
+	  {
+		  $$ = allocateBitwiseBinaryExpression(KCBitXorOperator, &$1, &$3) ;
+	  }
+	;
+
+and_expression
+	: equality_expression { $$ = $1 ; }
+	| and_expression '&' equality_expression
+	  {
+		  $$ = allocateBitwiseBinaryExpression(KCBitAndOperator, &$1, &$3) ;
+	  }
+	;
+
+equality_expression
+	: relational_expression	{ $$ = $1 ; }
+	| equality_expression equality_operator relational_expression
+	  {
+		  switch($2.integerValue){
+			  case '=':
+			  default: {
+				  $$ = allocateCompareExpression(KCEqualOperator, &$1, &$3) ;
+			  } break ;
+			  case '!': {
+				  $$ = allocateCompareExpression(KCNotEqualOperator, &$1, &$3) ;
+			  } break ;
+		  }
+	  }
+	;
+
+equality_operator
+	: S_EQUAL		{ $$ = KCMakeIntToken('=') ;	}
+	| S_NOT_EQUAL		{ $$ = KCMakeIntToken('!') ;	}
+	;
+
+relational_expression
+	: shift_expression	{ $$ = $1 ; }
+	| relational_expression relational_operator shift_expression
+	  {
+		  switch($2.integerValue){
+			  case '<':
+			  default: {
+				$$ = allocateCompareExpression(KCLessThanOperator, &$1, &$3) ;
+			  } break ;
+			  case 'l': {
+				$$ = allocateCompareExpression(KCLessEqualOperator, &$1, &$3) ;
+			  } break ;
+			  case '>': {
+				$$ = allocateCompareExpression(KCGreaterThanOperator, &$1, &$3) ;
+			  } break ;
+			  case 'g': {
+				$$ = allocateCompareExpression(KCGreateEqualOperator, &$1, &$3) ;
+			  } break ;
+		  }
+	  }
+	;
+
+relational_operator
+	: '<'			{ $$ = KCMakeIntToken('<') ;	}
+	| S_LESS_EQUAL		{ $$ = KCMakeIntToken('l') ;	}
+	| '>'			{ $$ = KCMakeIntToken('>') ;	}
+	| S_GREAT_EQUAL		{ $$ = KCMakeIntToken('g') ;	}
+	;
+
+shift_expression
+	: additive_expression { $$ = $1 ; }
+	| shift_expression shift_operator additive_expression
+	  {
+		  switch($2.integerValue){
+			  case '<':
+			  default: {
+				  $$ = allocateBitwiseBinaryExpression(KCLeftShiftOperator, &$1, &$3) ;
+			  } break ;
+			  case '>': {
+				  $$ = allocateBitwiseBinaryExpression(KCRightShiftOperator, &$1, &$3) ;
+			  } break ;
+		  }
+	  }
+	;
+
+shift_operator
+	: S_LEFT_SHIFT		{ $$ = KCMakeIntToken('<') ;	}
+	| S_RIGHT_SHIFT		{ $$ = KCMakeIntToken('>') ;	}
+	;
+
+additive_expression
+	: multiplicative_expression { $$ = $1 ; }
+	| additive_expression additive_operator multiplicative_expression
+	  {
+		  switch($2.integerValue){
+			  case '+':
+			  default: {
+				  $$ = allocateArithmeticBinaryExpression(KCAddOperator, &$1, &$3) ;
+			  } break ;
+			  case '-': {
+				  $$ = allocateArithmeticBinaryExpression(KCSubOperator, &$1, &$3) ;
+			  } break ;
+		  }
+	  }
+	;
+
+additive_operator
+	: '+'		{ $$ = KCMakeIntToken('+') ;	}
+	| '-'		{ $$ = KCMakeIntToken('-') ;	}
+	;
+
+multiplicative_expression
+	: cast_expression { $$ = $1 ; }
+	| multiplicative_expression multiplicative_operator cast_expression
+	  {
+		  switch($2.integerValue){
+			  case '*':
+			  default: {
+				  $$ = allocateArithmeticBinaryExpression(KCMulOperator, &$1, &$3) ;
+			  } break ;
+			  case '/': {
+				  $$ = allocateArithmeticBinaryExpression(KCDivOperator, &$1, &$3) ;
+			  } break ;
+			  case '%': {
+				  $$ = allocateArithmeticBinaryExpression(KCModOperator, &$1, &$3) ;
+			  } break ;
+		  }
+	  }
+	;
+
+multiplicative_operator
+	: '*'		{ $$ = KCMakeIntToken('*') ;	}
+	| '/'		{ $$ = KCMakeIntToken('/') ;	}
+	| '%'		{ $$ = KCMakeIntToken('%') ;	}
+	;
+
+cast_expression
+	: unary_expression		{ $$ = $1 ; }
+	;
+
+unary_expression
+	: postfix_expression		{ $$ = $1 ; }
+	//| S_INC unary_expression
+	//| S_DEC unary_expression
+	| unary_operator cast_expression
+	{
+		switch($1.integerValue){
+			case '+':
+			default: {
+				$$ = $2 ;
+			} break ;
+			case '-': {
+				$$ = allocateArithmeticUnaryExpression(KCNegateOperator, &$2) ;
+			} break ;
+			case '~': {
+				$$ = allocateBitwiseUnaryExpression(KCBitNotOperator, &$2) ;
+			} break ;
+			case '!': {
+				$$ = allocateLogicalUnaryExpression(KCLogicalNotOperator, &$2) ;
+			} break ;
+		}
+	}
+	;
+
+unary_operator
+	: '+'		{ $$ = KCMakeIntToken('+') ;	}
+	| '-'		{ $$ = KCMakeIntToken('-') ;	}
+	| '~'		{ $$ = KCMakeIntToken('~') ;	}
+	| '!'		{ $$ = KCMakeIntToken('!') ;	}
+	//| '&'
+	;
+
+postfix_expression
+	: primary_expression		{ $$ = $1 ; }
+	| L_IDENTIFIER '(' argument_expression_list_opt ')'
+	  {
+		  KCFunctionTable * functable = [KCFunctionTable sharedFunctionTable] ;
+		  
+		  NSString * ident = [[NSString alloc] initWithUTF8String: $1.identifierValue] ;
+		  free($1.identifierValue) ;
+		  $1.identifierValue = NULL ;
+		  
+		  KCBuiltinFunction * func = [functable searchBuiltinFunction: ident] ;
+		  KCExpression * resultexp ;
+		  if(func != nil){
+			  NSMutableArray * explist = token2array(&$3) ;
+			  resultexp = [[KCFunctionExpression alloc] initWithFunction: func withParameterExpressions: explist] ;
+		  } else {
+			  /* Generate undefined function error */
+			  KCExpressionParser * parser = (__bridge KCExpressionParser *) yyparser ;
+			  KCError * error = [KCError undefinedFunction: ident] ;
+			  [parser addError: error] ;
+			  /* allocate dummy expression */
+			  KCValue * dummyval = [[KCValue alloc] initWithSignedIntegerValue: 0] ;
+			  resultexp = [[KCValueExpression alloc] initWithValue: dummyval] ;
+		  }
+		  $$ = exp2token(resultexp) ;
+	  }
+	//| postfix_expression S_INC
+	//| postfix_expression S_DEC
+	;
+
+argument_expression_list_opt
+	: /* empty list */
+	  {
+		  NSMutableArray * explist = [[NSMutableArray alloc] initWithCapacity: 8] ;
+		  $$ = array2token(explist) ;
+	  }
+	| argument_expression_list	{ $$ = $1 ; }
+	;
+
+argument_expression_list
+	: expression
+	  {
+		  KCExpression * exp = token2exp(&$1) ;
+		  NSMutableArray * explist = [[NSMutableArray alloc] initWithCapacity: 8] ;
+		  [explist addObject: exp] ;
+		  $$ = array2token(explist) ;
+	  }
+	| argument_expression_list ',' expression
+	  {
+		  NSMutableArray * explist = token2array(&$1) ;
+		  KCExpression * exp = token2exp(&$3) ;
+		  [explist addObject: exp] ;
+		  $$ = array2token(explist) ;
+	  }
+	;
+
+primary_expression
+	: constant_expression	{ $$ = $1; }
+	| '(' expression ')'
+	  {
+		  KCExpression * srcexp = token2exp(&$2) ;
+		  srcexp.hasParenthesis = true ;
+		  $$ = exp2token(srcexp) ;
+	  }
+	;
+
+constant_expression
+	: L_INTEGER	{ $$ = allocateIntegerExpression(&$1) ; }
+	| L_FLOAT	{ $$ = allocateFloatExpression(&$1) ; }
+	;
+
+%%
+
+KCExpression *
+KCParseExpression(NSString * srcstr, NSArray ** errors)
+{
+	KCExpressionParser * parser = [[KCExpressionParser alloc] initWithInputString: srcstr]  ;
+	kc_parser_t parserptr = (__bridge kc_parser_t) parser ;
+	
+	kc_scanner_t scanner ;
+	kc_exp_lex_init(&scanner) ;
+	kc_exp_set_extra(parserptr, scanner) ;
+	
+	kc_exp_parse(parserptr, scanner) ;
+	
+	NSArray * result = [parser errors] ;
+	if([result count] == 0){
+		/* Has No errors */
+		*errors = nil ;
+		return parser.resultExpression ;
+	} else {
+		*errors = result ;
+		return nil ;
+	}
+}
+
+static void
+kc_exp_error(kc_parser_t parser, kc_scanner_t yyscanner, const char * message)
+{
+	((void) yyscanner) ;
+	
+	KCError * error = [[KCError alloc] initWithSyntaxError: message] ;
+	
+	KCExpressionParser * parserobj = (__bridge KCExpressionParser *) parser ;
+	[parserobj addError: error] ;
+}

@@ -10,6 +10,9 @@
 		050D257819D82A180079DB27 /* FormatSelector.m in Sources */ = {isa = PBXBuildFile; fileRef = 050D257719D82A180079DB27 /* FormatSelector.m */; };
 		050D257F19D83B300079DB27 /* KCButtonTableCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050D257D19D83B300079DB27 /* KCButtonTableCell.xib */; };
 		050D258019D83B300079DB27 /* KCButtonTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 050D257E19D83B300079DB27 /* KCButtonTableView.xib */; };
+		05174A441A0753F40025CB0F /* ExpressionLex.lm in Sources */ = {isa = PBXBuildFile; fileRef = 05174A3F1A0753F40025CB0F /* ExpressionLex.lm */; };
+		05174A451A0753F40025CB0F /* ExpressionParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 05174A411A0753F40025CB0F /* ExpressionParser.m */; };
+		05174A461A0753F40025CB0F /* ExpressionSyntax.ym in Sources */ = {isa = PBXBuildFile; fileRef = 05174A431A0753F40025CB0F /* ExpressionSyntax.ym */; };
 		0533550319D1B3A500FE1B9D /* CalcEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = 0533550219D1B3A500FE1B9D /* CalcEngine.m */; };
 		054F1E9719D081E30052A0DD /* PzSheetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054F1E9519D081E30052A0DD /* PzSheetCell.xib */; };
 		054F1E9819D081E30052A0DD /* PzSheetView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 054F1E9619D081E30052A0DD /* PzSheetView.xib */; };
@@ -34,6 +37,12 @@
 		050D257719D82A180079DB27 /* FormatSelector.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FormatSelector.m; path = Source/FormatSelector.m; sourceTree = SOURCE_ROOT; };
 		050D257D19D83B300079DB27 /* KCButtonTableCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KCButtonTableCell.xib; path = ../../../local/resource/KCButtonTableCell.xib; sourceTree = "<group>"; };
 		050D257E19D83B300079DB27 /* KCButtonTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = KCButtonTableView.xib; path = ../../../local/resource/KCButtonTableView.xib; sourceTree = "<group>"; };
+		05174A3E1A0753F40025CB0F /* ExpressionLex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpressionLex.h; path = Source/ExpressionLex.h; sourceTree = SOURCE_ROOT; };
+		05174A3F1A0753F40025CB0F /* ExpressionLex.lm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.lex; name = ExpressionLex.lm; path = Source/ExpressionLex.lm; sourceTree = SOURCE_ROOT; };
+		05174A401A0753F40025CB0F /* ExpressionParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpressionParser.h; path = Source/ExpressionParser.h; sourceTree = SOURCE_ROOT; };
+		05174A411A0753F40025CB0F /* ExpressionParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ExpressionParser.m; path = Source/ExpressionParser.m; sourceTree = SOURCE_ROOT; };
+		05174A421A0753F40025CB0F /* ExpressionSyntax.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ExpressionSyntax.h; path = Source/ExpressionSyntax.h; sourceTree = SOURCE_ROOT; };
+		05174A431A0753F40025CB0F /* ExpressionSyntax.ym */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.yacc; name = ExpressionSyntax.ym; path = Source/ExpressionSyntax.ym; sourceTree = SOURCE_ROOT; };
 		0533550119D1B3A500FE1B9D /* CalcEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CalcEngine.h; path = Source/CalcEngine.h; sourceTree = SOURCE_ROOT; };
 		0533550219D1B3A500FE1B9D /* CalcEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CalcEngine.m; path = Source/CalcEngine.m; sourceTree = SOURCE_ROOT; };
 		0533550419D1B71300FE1B9D /* Forwarders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Forwarders.h; path = Source/Forwarders.h; sourceTree = SOURCE_ROOT; };
@@ -73,6 +82,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		05174A3D1A0753D10025CB0F /* CalcEngine */ = {
+			isa = PBXGroup;
+			children = (
+				05174A3E1A0753F40025CB0F /* ExpressionLex.h */,
+				05174A3F1A0753F40025CB0F /* ExpressionLex.lm */,
+				05174A401A0753F40025CB0F /* ExpressionParser.h */,
+				05174A411A0753F40025CB0F /* ExpressionParser.m */,
+				05174A421A0753F40025CB0F /* ExpressionSyntax.h */,
+				05174A431A0753F40025CB0F /* ExpressionSyntax.ym */,
+				0533550119D1B3A500FE1B9D /* CalcEngine.h */,
+				0533550219D1B3A500FE1B9D /* CalcEngine.m */,
+			);
+			name = CalcEngine;
+			sourceTree = "<group>";
+		};
 		05AE23BC19D0170300EB296E = {
 			isa = PBXGroup;
 			children = (
@@ -92,14 +116,13 @@
 		05AE23C719D0170300EB296E /* PzCalc */ = {
 			isa = PBXGroup;
 			children = (
+				05174A3D1A0753D10025CB0F /* CalcEngine */,
 				05AE23CA19D0170300EB296E /* main.m */,
 				0533550419D1B71300FE1B9D /* Forwarders.h */,
 				05AE23CC19D0170300EB296E /* AppDelegate.h */,
 				05AE23CD19D0170300EB296E /* AppDelegate.m */,
 				05AE23CF19D0170300EB296E /* MainController.h */,
 				05AE23D019D0170300EB296E /* MainController.m */,
-				0533550119D1B3A500FE1B9D /* CalcEngine.h */,
-				0533550219D1B3A500FE1B9D /* CalcEngine.m */,
 				050D257619D82A180079DB27 /* FormatSelector.h */,
 				050D257719D82A180079DB27 /* FormatSelector.m */,
 				0561B59419D149DC005B0E1D /* TenKeyToSheet.h */,
@@ -222,11 +245,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				0533550319D1B3A500FE1B9D /* CalcEngine.m in Sources */,
+				05174A461A0753F40025CB0F /* ExpressionSyntax.ym in Sources */,
 				05FE61CC19D036FB0075BD52 /* PreferenceController.m in Sources */,
+				05174A451A0753F40025CB0F /* ExpressionParser.m in Sources */,
 				05AE23D119D0170300EB296E /* MainController.m in Sources */,
 				05AE23CE19D0170300EB296E /* AppDelegate.m in Sources */,
 				055D664719D1C37700597360 /* SheetToEngine.m in Sources */,
 				050D257819D82A180079DB27 /* FormatSelector.m in Sources */,
+				05174A441A0753F40025CB0F /* ExpressionLex.lm in Sources */,
 				05AE23CB19D0170300EB296E /* main.m in Sources */,
 				0561B59619D149DC005B0E1D /* TenKeyToSheet.m in Sources */,
 			);
@@ -301,6 +327,8 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				YACCFLAGS = "-dv";
+				YACC_GENERATED_FILE_STEM = InputFileStem;
 			};
 			name = Debug;
 		};
@@ -346,6 +374,8 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				YACCFLAGS = "-dv";
+				YACC_GENERATED_FILE_STEM = InputFileStem;
 			};
 			name = Release;
 		};
@@ -356,7 +386,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoo Hamada (TR2DNF3P93)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tomoo Hamada (TR2DNF3P93)";
 				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -391,7 +421,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Distribution: Tomoo Hamada (TR2DNF3P93)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Tomoo Hamada (TR2DNF3P93)";
 				GCC_OPTIMIZATION_LEVEL = 2;
-				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = NO;
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

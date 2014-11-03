@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import <KiwiCode/KiwiCode.h>
+#import "ExpressionSyntax.h"
 
 @protocol CalcEngineOutputDelegate
 - (void) outputResultString: (NSString *) str atIndex: (NSUInteger) index ;
