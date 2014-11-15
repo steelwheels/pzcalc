@@ -9,7 +9,7 @@
 #import "CalcEngine.h"
 #import "Forwarders.h"
 
-@interface SheetToEngine : NSObject <PzSheetViewTextFieldDelegate, CalcEngineOutputDelegate>
+@interface SheetToEngine : NSObject <PzSheetTextFieldDelegate, CalcEngineOutputDelegate>
 {
 	PzSheetView *		sheetView ;
 	CalcEngine *		calcEngine ;

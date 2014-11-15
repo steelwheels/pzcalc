@@ -11,7 +11,7 @@
 #import <KiwiCode/KiwiCode.h>
 #import "Forwarders.h"
 
-@interface FormatSelector : NSObject <PzSheetViewTouchLabelDelegate, KCButtonTableDelegate>
+@interface FormatSelector : NSObject <PzSheetTouchLabelDelegate, KCButtonTableDelegate>
 {
 	UIViewController *		viewController ;
 	CalcEngine *			calcEngine ;

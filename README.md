@@ -16,3 +16,9 @@ Required software
 -----------------
 * KiwiControls : <https://github.com/steelwheels/KiwiCode>
 
+ChangeLog
+--------------
+V1.0 -> V1.0.1
+* Do not allow to select the expression cell.  The state is not required.
+* When "AC" button is pressed, return to row 0 (top of the sheet). Before this modification, the current row is not changed.
+   
