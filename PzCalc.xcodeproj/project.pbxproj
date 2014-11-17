@@ -402,6 +402,7 @@
 				OTHER_LDFLAGS = (
 					"-lPzTenKeyView",
 					"-lPzSheetView",
+					"-lKCTextFieldCell",
 					"-lKCTouchableLabel",
 					"-lKCButtonTable",
 					"-lKCPreferenceTable",
@@ -437,6 +438,7 @@
 				OTHER_LDFLAGS = (
 					"-lPzTenKeyView",
 					"-lPzSheetView",
+					"-lKCTextFieldCell",
 					"-lKCTouchableLabel",
 					"-lKCButtonTable",
 					"-lKCPreferenceTable",
