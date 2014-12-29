@@ -9,7 +9,7 @@
 #import "ExpressionLex.h"
 
 KCExpression *
-KCParseExpression(NSString * srcstr, NSArray ** errors) ;
+KCParseExpression(NSString * srcstr, CNErrorList * errors) ;
 
 
 

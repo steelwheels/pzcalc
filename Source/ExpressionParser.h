@@ -15,19 +15,12 @@
 	NSString *		inputString ;
 	NSUInteger		currentInputPosition ;
 	NSUInteger		maxInputLength ;
-	
-	/*
-	 * Error handerl
-	 */
-	NSMutableArray *	errorArray ;
 }
 
-@property (strong, nonatomic)	KCExpression *	resultExpression ;
+@property (strong, nonatomic) KCExpression *	resultExpression ;
+@property (strong, nonatomic) CNErrorList *	errors ;
 
-- (instancetype) initWithInputString: (NSString *) str ;
+- (instancetype) initWithInputString: (NSString *) str withErrors: (CNErrorList *) errs ;
 - (size_t) input: (char *) buf withMaxSize: (unsigned long) buflen ;
-
-- (void) addError: (KCError *) error ;
-- (NSArray *) errors ;
 
 @end

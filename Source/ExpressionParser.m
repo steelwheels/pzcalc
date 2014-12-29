@@ -11,16 +11,15 @@
 
 @synthesize resultExpression ;
 
-- (instancetype) initWithInputString: (NSString *) str
+- (instancetype) initWithInputString: (NSString *) str withErrors: (CNErrorList *) errs
 {
 	if((self = [super init]) != nil){
 		self.resultExpression = nil ;
+		self.errors = errs ;
 		
 		inputString = [str copy] ;
 		currentInputPosition = 0 ;
 		maxInputLength = [inputString length] ;
-		
-		errorArray = [[NSMutableArray alloc] initWithCapacity: 8] ;
 	}
 	return self ;
 }
@@ -40,16 +39,6 @@
 		//printf("Read size : ZERO\n") ;
 		return 0 ;
 	}
-}
-
-- (void) addError: (KCError *) error
-{
-	[errorArray addObject: error] ;
-}
-
-- (NSArray *) errors
-{
-	return errorArray ;
 }
 
 @end

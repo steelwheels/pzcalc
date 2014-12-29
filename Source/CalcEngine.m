@@ -65,15 +65,15 @@ static void printExpression(KCExpression * src) ;
 - (void) putExpressionString: (NSString *) str atIndex: (NSUInteger) index
 {
 	BOOL		result = NO ;
-	NSArray *	psrerrs ;
-	KCExpression * psrexp = KCParseExpression(str, &psrerrs) ;
+	CNErrorList *	psrerrs = [[CNErrorList alloc] init] ;
+	KCExpression *	psrexp = KCParseExpression(str, psrerrs) ;
 	if(psrexp){
 		KCExpression *	propexp ;
-		KCError *	properr ;
-		propexp = [KCTypePropagator propagateTypeInExpression: psrexp error: &properr] ;
+		CNErrorList *	properrs = [[CNErrorList alloc] init] ;
+		propexp = [KCTypePropagator propagateTypeInExpression: psrexp errors: properrs] ;
 		if(propexp != nil){
-			KCError * execerr ;
-			KCValue * resval = [propexp execute: &execerr] ;
+			CNErrorList * execerrs = [[CNErrorList alloc] init] ;
+			KCValue * resval = [propexp execute: execerrs] ;
 			if(resval){
 				CalcItem * item = [calcItemArray objectAtIndex: index] ;
 				item.sourceExpression = propexp ;

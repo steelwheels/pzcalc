@@ -391,8 +391,8 @@ postfix_expression
 		  } else {
 			  /* Generate undefined function error */
 			  KCExpressionParser * parser = (__bridge KCExpressionParser *) yyparser ;
-			  KCError * error = [KCError undefinedFunction: ident] ;
-			  [parser addError: error] ;
+			  NSError * error = [KCError undefinedFunction: ident] ;
+			  [parser.errors.list addObject: error] ;
 			  /* allocate dummy expression */
 			  KCValue * dummyval = [[KCValue alloc] initWithSignedIntegerValue: 0] ;
 			  resultexp = [[KCValueExpression alloc] initWithValue: dummyval] ;
@@ -447,9 +447,9 @@ constant_expression
 %%
 
 KCExpression *
-KCParseExpression(NSString * srcstr, NSArray ** errors)
+KCParseExpression(NSString * srcstr, CNErrorList * errors)
 {
-	KCExpressionParser * parser = [[KCExpressionParser alloc] initWithInputString: srcstr]  ;
+	KCExpressionParser * parser = [[KCExpressionParser alloc] initWithInputString: srcstr withErrors: errors]  ;
 	kc_parser_t parserptr = (__bridge kc_parser_t) parser ;
 	
 	kc_scanner_t scanner ;
@@ -458,13 +458,9 @@ KCParseExpression(NSString * srcstr, NSArray ** errors)
 	
 	kc_exp_parse(parserptr, scanner) ;
 	
-	NSArray * result = [parser errors] ;
-	if([result count] == 0){
-		/* Has No errors */
-		*errors = nil ;
+	if([parser.errors.list count] == 0){
 		return parser.resultExpression ;
 	} else {
-		*errors = result ;
 		return nil ;
 	}
 }
@@ -474,8 +470,9 @@ kc_exp_error(kc_parser_t parser, kc_scanner_t yyscanner, const char * message)
 {
 	((void) yyscanner) ;
 	
-	KCError * error = [[KCError alloc] initWithSyntaxError: message] ;
+	NSString * msgstr = [[NSString alloc] initWithUTF8String: message] ;
+	NSError * error = [NSError parseErrorWithMessage: msgstr] ;
 	
 	KCExpressionParser * parserobj = (__bridge KCExpressionParser *) parser ;
-	[parserobj addError: error] ;
+	[parserobj.errors.list addObject: error] ;
 }
