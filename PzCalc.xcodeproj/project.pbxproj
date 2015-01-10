@@ -408,6 +408,7 @@
 					"-lKCPreferenceTable",
 					"-lKiwiControl",
 					"-lKiwiCode",
+					"-lCoconutGraphics",
 					"-lCoconut",
 					"-all_load",
 				);
@@ -445,6 +446,7 @@
 					"-lKCPreferenceTable",
 					"-lKiwiControl",
 					"-lKiwiCode",
+					"-lCoconutGraphics",
 					"-lCoconut",
 					"-all_load",
 				);
